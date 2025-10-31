@@ -1,0 +1,6 @@
+struct BaseReferences
+{
+	unsigned long timestamp;
+	long sequence_id;
+	double base_reference[3];
+};
