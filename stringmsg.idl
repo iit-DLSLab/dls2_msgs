@@ -1,10 +1,13 @@
-
-struct StringMsg
-{
-	// Header
-	string frame_id;
-	unsigned long sequence_id;
-	double timestamp;
-
-	string msg;
+module dls2_interface {
+	module msg {
+	struct StringMsg
+	{
+		// Header
+		string frame_id;
+		unsigned long sequence_id;
+		double timestamp;
+	
+		string msg;
+	};
+	};
 };

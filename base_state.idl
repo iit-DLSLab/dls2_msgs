@@ -1,26 +1,28 @@
-#include "dls_annotation.idl"
 #include "pose.idl"
 #include "screw.idl"
 
-@Robot
-struct BaseState
-{
-	// Header
-	string frame_id;
-	unsigned long sequence_id;
-	double timestamp;
+module dls2_interface {
+  	module msg {
+				struct BaseState
+				{
+				// Header
+					string frame_id;
+					unsigned long sequence_id;
+					double timestamp;
 
-	string robot_name;
+					string robot_name;
 
-	// Base Pose
-	Pose pose;
+					// Base Pose
+					Pose pose;
 
-	// Base velocity
-	Screw velocity;
+					// Base velocity
+					Screw velocity;
 
-	// Base acceleration
-	Screw acceleration;
+					// Base acceleration
+					Screw acceleration;
 
-	// Stance status
-	@LimbDataMap sequence<boolean> stance_status;
+					// Stance status
+					sequence<boolean> stance_status;
+				};
+	};
 };

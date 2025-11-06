@@ -1,14 +1,16 @@
-#include "dls_annotation.idl"
 
-struct MiniTest
-{
-	boolean status;
-	double number;
-};
-
-@Robot
-struct MiniTestRobot
-{
-	boolean status;
-	@JointState sequence<double> number;
+module dls2_interface {
+	module msg {
+	struct MiniTest
+	{
+		boolean status;
+		double number;
+	};
+	
+	struct MiniTestRobot
+	{
+		boolean status;
+		 sequence<double> number;
+	};
+	};
 };

@@ -1,13 +1,14 @@
-#include "dls_annotation.idl"
+module dls2_interface {
+  module msg {
+	struct DesiredTorques
+	{
+		// Header
+		string frame_id;
+		unsigned long sequence_id;
+		double timestamp;
 
-@Robot
-struct DesiredTorques
-{
-	// Header
-	string frame_id;
-	unsigned long sequence_id;
-	double timestamp;
-
-	//data
-	@JointState sequence<double> desired_torques;
+		//data
+		sequence<double> desired_torques;
+	};
+  };
 };

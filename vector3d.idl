@@ -1,10 +1,14 @@
-struct Vector3d
-{
-	// Header
-	string frame_id;
-	unsigned long sequence_id;
-	double timestamp;
-
-    // Vector3d
-    double data[3];
+module dls2_interface {
+	module msg {
+	struct Vector3d
+	{
+		// Header
+		string frame_id;
+		unsigned long sequence_id;
+		double timestamp;
+	
+	    // Vector3d
+	    double data[3];
+	};
+	};
 };

@@ -1,11 +1,15 @@
-struct StateMachineMonitor
-{       
-       // Unique name
-       string app_name;
-
-       // Current State
-       string state;
-
-       // Define if the activity of the state is running in realtime
-       boolean realtime;
+module dls2_interface {
+	module msg {
+	struct StateMachineMonitor
+	{       
+	       // Unique name
+	       string app_name;
+	
+	       // Current State
+	       string state;
+	
+	       // Define if the activity of the state is running in realtime
+	       boolean realtime;
+	};
+	};
 };

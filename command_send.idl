@@ -1,10 +1,14 @@
-struct CommandSend
-{
-	// Header
-	string frame_id;
-	unsigned long sequence_id;
-	double timestamp;
-
-	string name;
-	string command;
+module dls2_interface {
+	module msg {
+	struct CommandSend
+	{
+		// Header
+		string frame_id;
+		unsigned long sequence_id;
+		double timestamp;
+	
+		string name;
+		string command;
+	};
+	};
 };

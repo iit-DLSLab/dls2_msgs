@@ -1,6 +1,10 @@
-struct BaseReferences
-{
-	unsigned long timestamp;
-	long sequence_id;
-	double base_reference[3];
+module dls2_interface {
+	module msg {
+	struct BaseReferences
+	{
+		unsigned long timestamp;
+		long sequence_id;
+		double base_reference[3];
+	};
+	};
 };

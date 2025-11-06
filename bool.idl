@@ -1,10 +1,13 @@
-
-struct Bool
-{
-	// Header
-	string frame_id;
-	unsigned long sequence_id;
-	double timestamp;
-
-	boolean data;
+module dls2_interface {
+	module msg {
+	struct Bool
+	{
+		// Header
+		string frame_id;
+		unsigned long sequence_id;
+		double timestamp;
+	
+		boolean data;
+	};
+	};
 };
