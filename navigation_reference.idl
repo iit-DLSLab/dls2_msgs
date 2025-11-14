@@ -1,0 +1,16 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct NavigationReference
+    {
+      // Header
+      unsigned long sequence_id;
+      double timestamp;
+
+      double velocity[3]; // x, y, yaw
+      double robot_height;
+      boolean start;
+    };
+  };
+};
