@@ -1,0 +1,12 @@
+struct BatteryStatus
+{
+	// Header
+	string frame_id;
+	unsigned long sequence_id;
+	double timestamp;
+
+	double temperature;
+	double current;
+	double voltage;
+	double state_of_charge;
+};

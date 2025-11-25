@@ -1,0 +1,25 @@
+#include "pose.idl"
+#include "screw.idl"
+#include "desired_torques.idl"
+#include "joint_states.idl"
+
+module dls2_interface {
+	module msg {
+		struct Reference
+		{
+			// Header
+			string frame_id;
+			unsigned long sequence_id;
+			double timestamp;
+
+			DesiredTorques torques;
+			JointStates joint_states;
+			
+			Pose base_pose;
+			Screw base_velocity;
+
+			sequence<Pose> traj_poses;
+			sequence<Screw> traj_screws;
+		};
+	};
+};

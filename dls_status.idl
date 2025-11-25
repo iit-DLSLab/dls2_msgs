@@ -1,0 +1,21 @@
+#include "process_status.idl"
+#include "reference.idl"
+#include "robot_state.idl"
+#include "battery_status.idl"
+
+module dls2_interface {
+	module msg {
+		struct DLSStatus
+		{
+			// Header
+			string frame_id;
+			unsigned long sequence_id;
+			double timestamp;
+
+			sequence<ProcessStatus> processes; 
+			Reference reference;
+			RobotState robot_state;
+			BatteryStatus battery_status;
+		};
+	};
+};
