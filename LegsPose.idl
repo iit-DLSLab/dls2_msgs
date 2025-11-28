@@ -1,0 +1,21 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct LegsPose
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      sequence<double> linear_velocity;
+      sequence<double> angular_velocity;
+
+      double base_velocity[3];
+
+      sequence<boolean> stance_status;
+    };
+  };
+};

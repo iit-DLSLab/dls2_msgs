@@ -1,0 +1,16 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct String
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      string msg;
+    };
+  };
+};

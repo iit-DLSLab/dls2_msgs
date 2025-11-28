@@ -1,0 +1,20 @@
+#include "DlsHeader.idl"
+
+module dls2_interface
+{
+  module msg
+  {
+    struct EventLog
+    {
+      DlsHeader header;
+
+      string component_name;  // Component name
+
+      uint16 event_id;
+
+      uint16 severity;        // INFO, WARNING, ERROR, FATAL
+
+      string msg;             // Message string
+    };
+  };
+};

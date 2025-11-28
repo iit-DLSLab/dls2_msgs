@@ -1,0 +1,46 @@
+module dls2_interface
+{
+  module msg
+  {
+    const octet BE_NONE = 0;
+    const octet BE_CROSS_L_UD = 1;
+    const octet BE_CROSS_L_LR = 2;
+    const octet BE_CROSS_R_UD = 3;
+    const octet BE_CROSS_R_LR = 4;
+    const octet BE_STICK_L_UD = 5;
+    const octet BE_STICK_L_LR = 6;
+    const octet BE_STICK_R_UD = 7;
+    const octet BE_STICK_R_LR = 8;
+    const octet BE_BUTTON_A = 9;
+    const octet BE_BUTTON_B = 10;
+    const octet BE_BUTTON_X = 11;
+    const octet BE_BUTTON_Y = 12;
+    const octet BE_BUTTON_PLUS = 13;
+    const octet BE_BUTTON_MINUS = 14;
+    const octet BE_BUTTON_START = 15;
+    const octet BE_BUTTON_BACK = 16;
+    const octet BE_BUMPER_LT = 17;
+    const octet BE_BUMPER_LB = 18;
+    const octet BE_BUMPER_L1 = 19;
+    const octet BE_BUMPER_L2 = 20;
+    const octet BE_BUMPER_L3 = 21;
+    const octet BE_BUMPER_L4 = 22;
+    const octet BE_BUMPER_RT = 23;
+    const octet BE_BUMPER_RB = 24;
+    const octet BE_BUMPER_R1 = 25;
+    const octet BE_BUMPER_R2 = 26;
+    const octet BE_BUMPER_R3 = 27;
+    const octet BE_BUMPER_R4 = 28;
+
+    struct ButtonEvent
+    {
+      // header
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      octet button;
+      double value;
+    };
+  };
+};

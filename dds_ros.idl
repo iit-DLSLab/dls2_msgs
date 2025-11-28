@@ -1,8 +1,0 @@
-module dls2_interface {
-	module msg {
-	struct DDSROS
-	{
-		string data;
-	};
-	};
-};
