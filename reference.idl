@@ -1,7 +1,5 @@
 #include "pose.idl"
 #include "screw.idl"
-#include "desired_torques.idl"
-#include "joint_states.idl"
 
 module dls2_interface {
 	module msg {
@@ -12,8 +10,11 @@ module dls2_interface {
 			unsigned long sequence_id;
 			double timestamp;
 
-			DesiredTorques torques;
-			JointStates joint_states;
+			sequence<double> desired_torques;
+
+			sequence<double> joints_position;
+			sequence<double> joints_velocity;
+			sequence<double> joints_acceleration;
 			
 			Pose base_pose;
 			Screw base_velocity;

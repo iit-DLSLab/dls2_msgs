@@ -12,7 +12,7 @@ module dls2_interface {
 			unsigned long sequence_id;
 			double timestamp;
 
-			sequence<ProcessStatus> processes; 
+			sequence<ProcessStatusLight> processes; 
 			Reference reference;
 			RobotState robot_state;
 			BatteryStatus battery_status;
