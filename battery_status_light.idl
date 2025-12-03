@@ -1,12 +1,7 @@
 module dls2_interface {
 	module msg {
-		struct BatteryStatus
+		struct BatteryStatusLight
 		{
-			// Header
-			string frame_id;
-			unsigned long sequence_id;
-			double timestamp;
-
 			double temperature;
 			double current;
 			double voltage;

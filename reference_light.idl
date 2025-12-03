@@ -1,0 +1,21 @@
+#include "joint_states_light.idl"
+#include "pose.idl"
+#include "screw.idl"
+
+module dls2_interface {
+	module msg {
+		struct ReferenceLight
+		{
+			sequence<double> joint_torques;
+			JointStatesLight joints_state;
+			
+			sequence<double> feet_forces;
+
+			Pose base_pose;
+			Screw base_velocity;
+
+			sequence<Pose> traj_poses;
+			sequence<Screw> traj_screws;
+		};
+	};
+};

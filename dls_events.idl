@@ -1,0 +1,9 @@
+#include "event_log.idl"
+
+module dls2_interface {
+	module msg {
+		struct DLSEvents{  
+			sequence<EventLog> events; 
+		};
+	};
+};

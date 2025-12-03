@@ -1,7 +1,6 @@
-#include "process_status.idl"
-#include "reference.idl"
-#include "robot_state.idl"
-#include "battery_status.idl"
+#include "process_status_light.idl"
+#include "reference_light.idl"
+#include "dls_robot_state.idl"
 
 module dls2_interface {
 	module msg {
@@ -13,9 +12,8 @@ module dls2_interface {
 			double timestamp;
 
 			sequence<ProcessStatusLight> processes; 
-			Reference reference;
-			RobotState robot_state;
-			BatteryStatus battery_status;
+			ReferenceLight reference;
+			DLSRobotState robot_state;
 		};
 	};
 };
