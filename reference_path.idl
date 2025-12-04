@@ -1,11 +1,12 @@
 #include "position2D.idl"
+#include "header.idl"
 
 module dls2_interface {
     module msg {
-        struct ReferencePath {
-            // Header
-            unsigned long sequence_id;
-            double timestamp;
+        struct ReferencePath 
+        {
+   			DLSHeader header;
+            string frame_id;
 
             sequence<Position2D> path;
         };

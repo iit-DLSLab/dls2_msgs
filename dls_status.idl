@@ -1,15 +1,14 @@
 #include "process_status_light.idl"
 #include "reference_light.idl"
 #include "dls_robot_state_light.idl"
+#include "header.idl"
 
 module dls2_interface {
 	module msg {
 		struct DLSStatus
 		{
-			// Header
+			DLSHeader header;
 			string frame_id;
-			unsigned long sequence_id;
-			double timestamp;
 
 			sequence<ProcessStatusLight> processes; 
 			ReferenceLight reference;

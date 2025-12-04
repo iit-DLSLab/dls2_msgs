@@ -1,13 +1,12 @@
+#include "DlsHeader.idl"
+
 module dls2_interface
 {
   module msg
   {
     struct CommandCall
     {
-      // header
-      string frame_id;
-      unsigned long sequence_id;
-      double timestamp;
+      DlsHeader header;
 
       // data
       string owner;

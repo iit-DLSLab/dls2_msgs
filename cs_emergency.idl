@@ -1,10 +1,10 @@
+#include "header.idl"
+
 module dls2_interface {
 	module msg {
-		struct CSEmergency{
-			
-			// Header
-			unsigned long sequence_id;
-			double timestamp;
+		struct CSEmergency
+		{
+			DLSHeader header;
 
 			boolean emergency_stop;
 		};

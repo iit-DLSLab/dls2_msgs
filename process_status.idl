@@ -1,11 +1,10 @@
+#include "header.idl"
+
 module dls2_interface {
 	module msg {
 		struct ProcessStatus
 		{
-			// Header
-			string frame_id;
-			unsigned long sequence_id;
-			double timestamp;
+			DLSHeader header;
 
 			string component_name;
 			string current_state;

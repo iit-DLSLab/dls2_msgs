@@ -1,11 +1,11 @@
 #include "Vec3.idl"
+#include "header.idl"
 
 module dls2_interface {
     module msg {
-        struct FeetReference {
-            // Header
-            unsigned long sequence_id;
-            double timestamp;
+        struct FeetReference 
+        {
+            DLSHeader header;
 
             sequence<uint32> feet_ids;
 	        sequence<Vec3> feet_position;

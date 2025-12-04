@@ -1,10 +1,10 @@
+#include "header.idl"
+
 module dls2_interface {
 	module msg {
-		struct CSBasicCommand{
-			
-			// Header
-			unsigned long sequence_id;
-			double timestamp;
+		struct CSBasicCommand
+		{	
+			DLSHeader header;
 
 			uint32 autonomy_level;
 			uint32 locomotion_strategy;

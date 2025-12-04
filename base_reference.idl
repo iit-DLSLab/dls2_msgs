@@ -1,11 +1,11 @@
 #include "base_state_light.idl"
+#include "header.idl"
 
 module dls2_interface {
     module msg {
-        struct BaseReference {
-            // Header
-            unsigned long sequence_id;
-            double timestamp;
+        struct BaseReference 
+        {    
+            DLSHeader header;
 
             BaseStateLight target_state;
         };

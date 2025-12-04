@@ -1,5 +1,6 @@
 #include "Pose.idl"
 #include "Screw.idl"
+#include "DlsHeader.idl"
 
 module dls2_interface
 {
@@ -7,10 +8,7 @@ module dls2_interface
   {
     struct BaseState
     {
-      // header
-      string frame_id;
-      unsigned long sequence_id;
-      double timestamp;
+      DlsHeader header;
 
       string robot_name;
 

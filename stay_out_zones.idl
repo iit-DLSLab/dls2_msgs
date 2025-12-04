@@ -1,11 +1,12 @@
 #include "zone.idl"
+#include "header.idl"
 
 module dls2_interface {
     module msg {
-        struct StayOutZones {
-            // Header
-            unsigned long sequence_id;
-            double timestamp;
+        struct StayOutZones 
+        {
+            DLSHeader header;
+            string frame_id;
 
             sequence<Zone> zones;
         };
