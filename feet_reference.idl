@@ -1,4 +1,4 @@
-#include "position2D.idl"
+#include "Vec3.idl"
 
 module dls2_interface {
     module msg {
@@ -8,7 +8,7 @@ module dls2_interface {
             double timestamp;
 
             sequence<uint32> feet_ids;
-	        sequence<Position2D> feet_position;
+	        sequence<Vec3> feet_position;
         };
     };
 };

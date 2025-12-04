@@ -3,17 +3,18 @@
 #include "wrench_light.idl"
 #include "battery_status_light.idl"
 #include "FrictionConeList.idl"
+#include "Vec3.idl"
 
 module dls2_interface {
 	module msg {
-		struct DLSRobotState
+		struct DLSRobotStateLight
 		{
 			BlindStateLight blind_state;
 			BaseStateLight base_state;
 
 			WrenchLight base_wrench;
 
-			sequence<double> feet_forces;
+			sequence<Vec3> feet_forces;
 			FrictionConeList friction_cones;
 
 			uint32 locomotion_strategy;

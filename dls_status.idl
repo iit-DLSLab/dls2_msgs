@@ -1,6 +1,6 @@
 #include "process_status_light.idl"
 #include "reference_light.idl"
-#include "dls_robot_state.idl"
+#include "dls_robot_state_light.idl"
 
 module dls2_interface {
 	module msg {
@@ -13,7 +13,7 @@ module dls2_interface {
 
 			sequence<ProcessStatusLight> processes; 
 			ReferenceLight reference;
-			DLSRobotState robot_state;
+			DLSRobotStateLight robot_state;
 		};
 	};
 };

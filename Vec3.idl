@@ -1,0 +1,15 @@
+#ifndef DLS2_INTERFACE_MSG_VEC3_IDL_
+#define DLS2_INTERFACE_MSG_VEC3_IDL_ 
+
+module dls2_interface {
+	module msg {
+		struct Vec3 {
+            double x;
+            double y;
+            double z;
+        };
+	};
+};
+
+#endif // DLS2_INTERFACE_MSG_VEC3_IDL_
+

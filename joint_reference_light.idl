@@ -1,0 +1,9 @@
+module dls2_interface {
+	module msg {
+		struct JointReferenceLight
+		{
+			sequence<double> joints_position;
+			sequence<double> joints_velocity;
+		};
+	};
+};
