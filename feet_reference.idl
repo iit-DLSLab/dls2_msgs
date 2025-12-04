@@ -1,0 +1,14 @@
+#include "position2D.idl"
+
+module dls2_interface {
+    module msg {
+        struct FeetReference {
+            // Header
+            unsigned long sequence_id;
+            double timestamp;
+
+            sequence<uint32> feet_ids;
+	        sequence<Position2D> feet_position;
+        };
+    };
+};
