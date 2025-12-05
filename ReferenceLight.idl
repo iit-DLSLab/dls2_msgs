@@ -1,5 +1,5 @@
-#include "joint_states_light.idl"
-#include "pose.idl"
+#include "JointStatesLight.idl"
+#include "Pose.idl"
 #include "screw.idl"
 #include "Vec3.idl"
 

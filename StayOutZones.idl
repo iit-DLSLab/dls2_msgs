@@ -1,14 +1,14 @@
-#include "position2D.idl"
-#include "header.idl"
+#include "Zone.idl"
+#include "DLSHeader.idl"
 
 module dls2_interface {
     module msg {
-        struct TargetPosition 
+        struct StayOutZones 
         {
             DLSHeader header;
             string frame_id;
 
-            Position2D target_position;
+            sequence<Zone> zones;
         };
     };
 };

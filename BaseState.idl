@@ -8,7 +8,7 @@ module dls2_interface
   {
     struct BaseState
     {
-      DlsHeader header;
+      dls2_interface::msg::DlsHeader header;
 
       string robot_name;
 

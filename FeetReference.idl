@@ -1,5 +1,5 @@
 #include "Vec3.idl"
-#include "header.idl"
+#include "DLSHeader.idl"
 
 module dls2_interface {
     module msg {

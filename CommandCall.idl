@@ -6,7 +6,7 @@ module dls2_interface
   {
     struct CommandCall
     {
-      DlsHeader header;
+      dls2_interface::msg::DlsHeader header;
 
       // data
       string owner;

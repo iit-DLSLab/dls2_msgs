@@ -1,5 +1,5 @@
-#include "position2D.idl"
-#include "header.idl"
+#include "Position2D.idl".idl"
+#include "DLSHeader.idl"
 
 module dls2_interface {
     module msg {

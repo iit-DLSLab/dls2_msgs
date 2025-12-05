@@ -1,4 +1,4 @@
-#include "pose.idl"
+#include "Pose.idl"
 #include "screw.idl"
 
 module dls2_interface {

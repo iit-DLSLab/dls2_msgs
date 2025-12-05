@@ -1,7 +1,7 @@
-#include "process_status_light.idl"
-#include "reference_light.idl"
-#include "dls_robot_state_light.idl"
-#include "header.idl"
+#include "ProcessStatusLight.idl"
+#include "ReferenceLight.idl"
+#include "DLSRobotStateLight.idl"
+#include "DLSHeader.idl"
 
 module dls2_interface {
 	module msg {
