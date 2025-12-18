@@ -1,18 +1,17 @@
 #include "ProcessStatusLight.idl"
 #include "ReferenceLight.idl"
-#include "DLSRobotStateLight.idl"
-#include "DLSHeader.idl"
+#include "DlsRobotStateLight.idl"
+#include "DlsHeader.idl"
 
 module dls2_interface {
 	module msg {
 		struct DLSStatus
 		{
-			DLSHeader header;
-			string frame_id;
+			dls2_interface::msg::DlsHeader header;
 
-			sequence<ProcessStatusLight> processes; 
-			ReferenceLight reference;
-			DLSRobotStateLight robot_state;
+			sequence<dls2_interface::msg::ProcessStatusLight> processes; 
+			dls2_interface::msg::ReferenceLight reference;
+			dls2_interface::msg::DlsRobotStateLight robot_state;
 		};
 	};
 };

@@ -1,0 +1,27 @@
+#include "DlsHeader.idl"
+#include "minitest.idl"
+
+module dls2_interface {
+	module msg {
+	struct Test
+	{
+		string key;
+	
+		double array[3];
+	
+		sequence<uint32> vector;
+	
+		map<string,double> map_data;
+	
+		dls2_interface::msg::DlsHeader header;
+		MiniTest mini_test;
+		MiniTestRobot mini_test_robot;
+	
+		sequence<double> joint_state;
+	
+		sequence<boolean> limb_datamap;
+	
+		sequence<double> limb_datamap_eigenvec3;
+	};
+	};
+};

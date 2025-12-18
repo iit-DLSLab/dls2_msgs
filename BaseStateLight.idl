@@ -1,13 +1,13 @@
 #include "Pose.idl"
-#include "screw.idl"
+#include "Screw.idl"
 
 module dls2_interface {
   	module msg {
 		struct BaseStateLight
 		{
-			Pose pose;
-			Screw velocity;
-			Screw acceleration;
+			dls2_interface::msg::Pose pose;
+			dls2_interface::msg::Screw velocity;
+			dls2_interface::msg::Screw acceleration;
 		};
 	};
 };

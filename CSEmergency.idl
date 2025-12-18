@@ -1,10 +1,10 @@
-#include "DLSHeader.idl"
+#include "DlsHeader.idl"
 
 module dls2_interface {
 	module msg {
 		struct CSEmergency
 		{
-			DLSHeader header;
+			dls2_interface::msg::DlsHeader header;
 
 			boolean emergency_stop;
 		};

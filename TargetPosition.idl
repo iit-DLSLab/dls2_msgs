@@ -1,14 +1,13 @@
-#include "Position2D.idl".idl"
-#include "DLSHeader.idl"
+#include "Position2D.idl"
+#include "DlsHeader.idl"
 
 module dls2_interface {
     module msg {
         struct TargetPosition 
         {
-            DLSHeader header;
-            string frame_id;
+            dls2_interface::msg::DlsHeader header;
 
-            Position2D target_position;
+            dls2_interface::msg::Position2D target_position;
         };
     };
 };

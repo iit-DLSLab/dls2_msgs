@@ -1,6 +1,6 @@
 #include "JointStatesLight.idl"
 #include "Pose.idl"
-#include "screw.idl"
+#include "Screw.idl"
 #include "Vec3.idl"
 
 module dls2_interface {
@@ -8,15 +8,15 @@ module dls2_interface {
 		struct ReferenceLight
 		{
 			sequence<double> joint_torques;
-			JointStatesLight joints_state;
+			dls2_interface::msg::JointStatesLight joints_state;
 			
-			sequence<Vec3> feet_forces;
+			sequence<dls2_interface::msg::Vec3> feet_forces;
 
-			Pose base_pose;
-			Screw base_velocity;
+			dls2_interface::msg::Pose base_pose;
+			dls2_interface::msg::Screw base_velocity;
 
-			sequence<Pose> traj_poses;
-			sequence<Screw> traj_screws;
+			sequence<dls2_interface::msg::Pose> traj_poses;
+			sequence<dls2_interface::msg::Screw> traj_screws;
 		};
 	};
 };

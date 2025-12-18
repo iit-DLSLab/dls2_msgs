@@ -1,11 +1,10 @@
-#include "DLSHeader.idl"
+#include "DlsHeader.idl"
 
 module dls2_interface {
 	module msg {
 		struct JointStates
 			{
-				DLSHeader header;
-				string frame_id;
+				dls2_interface::msg::DlsHeader header;
 
 				// Vector3d
 				sequence<double> q;
