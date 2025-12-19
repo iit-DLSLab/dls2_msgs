@@ -5,7 +5,7 @@
 
 module dls2_interface {
 	module msg {
-		struct DLSStatus
+		struct DlsStatus
 		{
 			dls2_interface::msg::DlsHeader header;
 

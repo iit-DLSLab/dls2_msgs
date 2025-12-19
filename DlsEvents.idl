@@ -2,7 +2,7 @@
 
 module dls2_interface {
 	module msg {
-		struct DLSEvents
+		struct DlsEvents
 		{  
 			sequence<dls2_interface::msg::EventLog> events; 
 		};
