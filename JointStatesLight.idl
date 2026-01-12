@@ -2,9 +2,9 @@ module dls2_interface {
 	module msg {
 		struct JointStatesLight
 		{
-			sequence<double> joints_position;
-			sequence<double> joints_velocity;
-			sequence<double> joints_acceleration;
+			sequence<double> position;
+			sequence<double> velocity;
+			sequence<double> effort;
 		};
 	};
 };

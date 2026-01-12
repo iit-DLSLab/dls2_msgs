@@ -1,4 +1,5 @@
 #include "DlsHeader.idl"
+#include "JointStatesLight.idl"
 
 module dls2_interface {
 	module msg {
@@ -6,10 +7,7 @@ module dls2_interface {
 			{
 				dls2_interface::msg::DlsHeader header;
 
-				// Vector3d
-				sequence<double> q;
-				sequence<double> qd;
-				sequence<double> qdd;
+				dls2_interface::msg::JointStatesLight joints;
 			};
 		};
 };
