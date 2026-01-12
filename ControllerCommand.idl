@@ -17,9 +17,9 @@ module dls2_interface
       double duty_factor;
       sequence<double> step_height;
 
-      dls2_interface::msg::Pose base_pose_HF;
+      dls2_interface::msg::Pose base_pose_hf;
 
-      dls2_interface::msg::Screw base_velocity_HF;
+      dls2_interface::msg::Screw base_velocity_hf;
     };
   };
 };

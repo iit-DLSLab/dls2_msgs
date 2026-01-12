@@ -6,7 +6,7 @@ module dls2_interface
   {
     struct EventLog
     {
-      DlsHeader header;
+      dls2_interface::msg::DlsHeader header;
 
       string component_name;  // Component name
 
