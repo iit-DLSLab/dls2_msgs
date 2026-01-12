@@ -1,0 +1,17 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct StateMachineMonitor
+    {
+      // unique name
+      string app_name;
+
+      // current State
+      string state;
+
+      // define if the activity of the state is running in realtime
+      boolean realtime;
+    };
+  };
+};

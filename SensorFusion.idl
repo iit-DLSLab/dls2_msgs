@@ -1,0 +1,17 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct SensorFusion
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      double position[3];
+      double linear_velocity[3];
+    };
+  };
+};

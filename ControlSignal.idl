@@ -1,0 +1,17 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct ControlSignal
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      sequence<double> torques;
+      unsigned long long signal_reconstruction_method;
+    };
+  };
+};

@@ -1,0 +1,18 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct ParamServer
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      string key;
+      string value;
+      boolean rw; // true: write, false: read-only
+    };
+  };
+};

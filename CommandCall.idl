@@ -1,0 +1,22 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct CommandCall
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      // data
+      string owner;
+      string command_name;
+      string docstring;
+
+      string args;
+      string ret;
+      boolean status; // true means success
+    };
+  };
+};
