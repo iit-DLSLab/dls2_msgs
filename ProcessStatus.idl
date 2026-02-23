@@ -1,0 +1,23 @@
+#include "DlsHeader.idl"
+#include "InputTopicInfo.idl"
+
+module dls2_interface {
+	module msg {
+		struct ProcessStatus
+		{
+			dls2_interface::msg::DlsHeader header;
+
+			string component_name;
+			string current_state;
+			string desired_state;
+			double current_frequency;
+			double desired_frequency;
+			uint8 realtime;
+			sequence<dls2_interface::msg::InputTopicInfo> input_topic_info;
+			double cpu_usage;
+			double mem_usage;
+			int32 inputs_synchronized; //-1 not requested, 0 no, 1 yes
+			string status_string;
+		};
+  	};
+};

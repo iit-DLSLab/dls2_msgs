@@ -1,0 +1,13 @@
+#include "Position2D.idl"
+#include "DlsHeader.idl"
+
+module dls2_interface {
+    module msg {
+        struct ReferencePath 
+        {
+   			dls2_interface::msg::DlsHeader header;
+
+            sequence<dls2_interface::msg::Position2D> path;
+        };
+    };
+};

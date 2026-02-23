@@ -1,0 +1,15 @@
+#include "DlsHeader.idl"
+
+module dls2_interface {
+	module msg {
+		struct BatteryStatus
+		{
+            dls2_interface::msg::DlsHeader header;
+
+			double temperature;
+			double current;
+			double voltage;
+			double state_of_charge;
+		};
+	};
+};

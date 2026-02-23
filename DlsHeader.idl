@@ -1,3 +1,6 @@
+#ifndef DLS2_INTERFACE_MSG_HEADER_IDL_
+#define DLS2_INTERFACE_MSG_HEADER_IDL_ 
+
 module dls2_interface
 {
   module msg
@@ -10,3 +13,5 @@ module dls2_interface
     };
   };
 };
+
+#endif // DLS2_INTERFACE_MSG_HEADER_IDL_

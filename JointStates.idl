@@ -1,0 +1,13 @@
+#include "DlsHeader.idl"
+#include "JointStatesLight.idl"
+
+module dls2_interface {
+	module msg {
+		struct JointStates
+			{
+				dls2_interface::msg::DlsHeader header;
+
+				dls2_interface::msg::JointStatesLight joints;
+			};
+		};
+};

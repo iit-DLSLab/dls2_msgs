@@ -1,0 +1,16 @@
+#include "DlsHeader.idl"
+
+module dls2_interface {
+	module msg {
+		struct CSBasicCommand
+		{	
+			dls2_interface::msg::DlsHeader header;
+
+			uint32 autonomy_level;
+			uint32 locomotion_strategy;
+			uint32 control_strategy;
+
+			boolean enable;
+		};
+	};
+};

@@ -1,0 +1,13 @@
+#include "BaseStateLight.idl"
+#include "DlsHeader.idl"
+
+module dls2_interface {
+    module msg {
+        struct BaseReference 
+        {    
+            dls2_interface::msg::DlsHeader header;
+
+            dls2_interface::msg::BaseStateLight target_state;
+        };
+    };
+};

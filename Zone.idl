@@ -1,0 +1,9 @@
+#include "Position2D.idl"
+
+module dls2_interface {
+    module msg {
+        struct Zone {
+            sequence<dls2_interface::msg::Position2D> markers;
+        };
+    };
+};

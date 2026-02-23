@@ -1,0 +1,13 @@
+#include "Zone.idl"
+#include "DlsHeader.idl"
+
+module dls2_interface {
+    module msg {
+        struct StayOutZones 
+        {
+            dls2_interface::msg::DlsHeader header;
+
+            sequence<dls2_interface::msg::Zone> zones;
+        };
+    };
+};

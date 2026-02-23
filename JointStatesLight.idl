@@ -1,0 +1,10 @@
+module dls2_interface {
+	module msg {
+		struct JointStatesLight
+		{
+			sequence<double> position;
+			sequence<double> velocity;
+			sequence<double> effort;
+		};
+	};
+};

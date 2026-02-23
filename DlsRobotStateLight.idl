@@ -1,0 +1,25 @@
+#include "BlindStateLight.idl"
+#include "BaseStateLight.idl"
+#include "WrenchLight.idl"
+#include "BatteryStatusLight.idl"
+#include "FrictionConeList.idl"
+#include "Vec3.idl"
+
+module dls2_interface {
+	module msg {
+		struct DlsRobotStateLight
+		{
+			dls2_interface::msg::BlindStateLight blind_state;
+			dls2_interface::msg::BaseStateLight base_state;
+
+			dls2_interface::msg::WrenchLight base_wrench;
+
+			sequence<dls2_interface::msg::Vec3> feet_forces;
+			dls2_interface::msg::FrictionConeList friction_cones;
+
+			uint32 locomotion_strategy;
+
+			dls2_interface::msg::BatteryStatusLight battery_status;
+		};
+	};
+};

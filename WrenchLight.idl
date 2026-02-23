@@ -1,0 +1,9 @@
+module dls2_interface {
+  	module msg {
+		struct WrenchLight
+		{
+			double force[3];
+			double torque[3];
+		};
+	};
+};

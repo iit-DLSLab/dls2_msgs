@@ -1,0 +1,11 @@
+module dls2_interface {
+	module msg {
+		struct InputTopicInfo
+		{
+      		string topic_name;
+			double current_freq;
+			double desired_freq;
+			uint32 missed_sequence_ids;
+		};
+  	};
+};

@@ -1,0 +1,11 @@
+module dls2_interface {
+	module msg {
+		struct BatteryStatusLight
+		{
+			double temperature;
+			double current;
+			double voltage;
+			double state_of_charge;
+		};
+	};
+};

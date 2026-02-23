@@ -1,0 +1,14 @@
+#include "Vec3.idl"
+#include "DlsHeader.idl"
+
+module dls2_interface {
+    module msg {
+        struct FeetReference 
+        {
+            dls2_interface::msg::DlsHeader header;
+
+            sequence<uint32> feet_ids;
+	        sequence<dls2_interface::msg::Vec3> feet_position;
+        };
+    };
+};

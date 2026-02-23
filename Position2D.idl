@@ -1,0 +1,8 @@
+module dls2_interface {
+	module msg {
+		struct Position2D {
+            double x;
+            double y;
+        };
+	};
+};
