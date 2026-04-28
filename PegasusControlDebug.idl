@@ -1,0 +1,37 @@
+#include "DlsHeader.idl"
+#include "Vec3.idl"
+
+module dls2_interface
+{
+  module msg
+  {
+    struct PegasusControlDebug
+    {
+      dls2_interface::msg::DlsHeader header;
+
+      string robot_name;
+
+      double base_position[3];
+      double base_orientation[4];
+      sequence<double> joints_position;
+
+      dls2_interface::msg::Vec3 desired_linear_velocity;
+      dls2_interface::msg::Vec3 desired_angular_velocity;
+
+      sequence<dls2_interface::msg::Vec3> current_feet_positions_world;
+      sequence<dls2_interface::msg::Vec3> estimated_grf_world;
+
+      sequence<dls2_interface::msg::Vec3> predicted_base_positions;
+      sequence<dls2_interface::msg::Vec3> predicted_feet_positions;
+      sequence<dls2_interface::msg::Vec3> predicted_grf_horizon;
+      sequence<boolean> predicted_contact_state_horizon;
+
+      unsigned long horizon;
+      unsigned long contacts_per_step;
+
+      double terrain_height_world;
+      double terrain_roll;
+      double terrain_pitch;
+    };
+  };
+};
