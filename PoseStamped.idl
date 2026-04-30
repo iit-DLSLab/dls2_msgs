@@ -1,0 +1,11 @@
+#include "Header.idl"
+#include "PoseRos.idl"
+
+module geometry_msgs {
+  module msg {
+    struct PoseStamped {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Pose pose;
+    };
+  };
+};
