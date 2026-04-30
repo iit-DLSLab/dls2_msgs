@@ -1,0 +1,9 @@
+#include "PoseStamped.idl"
+
+module fake_action {
+  module msg {
+    struct APFdebug {
+      sequence<geometry_msgs::msg::PoseStamped> goal_pose_array;
+    };
+  };
+};
