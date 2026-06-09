@@ -1,0 +1,22 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERTYPE_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERTYPE_IDL_
+
+module rcl_interfaces {
+  module msg {
+    const uint8 PARAMETER_NOT_SET = 0;
+    const uint8 PARAMETER_BOOL = 1;
+    const uint8 PARAMETER_INTEGER = 2;
+    const uint8 PARAMETER_DOUBLE = 3;
+    const uint8 PARAMETER_STRING = 4;
+    const uint8 PARAMETER_BYTE_ARRAY = 5;
+    const uint8 PARAMETER_BOOL_ARRAY = 6;
+    const uint8 PARAMETER_INTEGER_ARRAY = 7;
+    const uint8 PARAMETER_DOUBLE_ARRAY = 8;
+    const uint8 PARAMETER_STRING_ARRAY = 9;
+
+    struct ParameterType {
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERTYPE_IDL_

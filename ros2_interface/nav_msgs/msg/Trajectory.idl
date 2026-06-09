@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_TRAJECTORY_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_TRAJECTORY_IDL_
+
+#include "nav_msgs/msg/TrajectoryPoint.idl"
+#include "std_msgs/msg/Header.idl"
+
+module nav_msgs {
+  module msg {
+    struct Trajectory {
+      std_msgs::msg::Header header;
+      sequence<nav_msgs::msg::TrajectoryPoint> points;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_TRAJECTORY_IDL_

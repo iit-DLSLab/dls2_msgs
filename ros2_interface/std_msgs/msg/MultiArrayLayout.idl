@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_MULTIARRAYLAYOUT_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_MULTIARRAYLAYOUT_IDL_
+
+#include "std_msgs/msg/MultiArrayDimension.idl"
+
+module std_msgs {
+  module msg {
+    struct MultiArrayLayout {
+      sequence<std_msgs::msg::MultiArrayDimension> dim;
+      uint32 data_offset;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_MULTIARRAYLAYOUT_IDL_

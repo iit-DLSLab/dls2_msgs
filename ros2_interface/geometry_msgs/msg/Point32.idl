@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POINT32_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POINT32_IDL_
+
+module geometry_msgs {
+  module msg {
+    struct Point32 {
+      float x;
+      float y;
+      float z;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POINT32_IDL_

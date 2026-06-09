@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_ACTION_MSGS_MSG_GOALINFO_IDL_
+#define ROS2_INTERFACE_ACTION_MSGS_MSG_GOALINFO_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "unique_identifier_msgs/msg/UUID.idl"
+
+module action_msgs {
+  module msg {
+    struct GoalInfo {
+      unique_identifier_msgs::msg::UUID goal_id;
+      builtin_interfaces::msg::Time stamp;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ACTION_MSGS_MSG_GOALINFO_IDL_

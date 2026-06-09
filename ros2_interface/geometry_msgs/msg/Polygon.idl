@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGON_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGON_IDL_
+
+#include "geometry_msgs/msg/Point32.idl"
+
+module geometry_msgs {
+  module msg {
+    struct Polygon {
+      sequence<geometry_msgs::msg::Point32> points;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGON_IDL_

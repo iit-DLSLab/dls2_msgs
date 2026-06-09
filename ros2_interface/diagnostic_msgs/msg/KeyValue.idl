@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_KEYVALUE_IDL_
+#define ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_KEYVALUE_IDL_
+
+module diagnostic_msgs {
+  module msg {
+    struct KeyValue {
+      string key;
+      string value;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_KEYVALUE_IDL_

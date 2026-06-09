@@ -1,0 +1,22 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERDESCRIPTOR_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERDESCRIPTOR_IDL_
+
+#include "rcl_interfaces/msg/FloatingPointRange.idl"
+#include "rcl_interfaces/msg/IntegerRange.idl"
+
+module rcl_interfaces {
+  module msg {
+    struct ParameterDescriptor {
+      string name;
+      uint8 type;
+      string description;
+      string additional_constraints;
+      boolean read_only;
+      boolean dynamic_typing;
+      sequence<rcl_interfaces::msg::FloatingPointRange, 1> floating_point_range;
+      sequence<rcl_interfaces::msg::IntegerRange, 1> integer_range;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERDESCRIPTOR_IDL_

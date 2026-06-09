@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_STATISTICS_MSGS_MSG_STATISTICDATAPOINT_IDL_
+#define ROS2_INTERFACE_STATISTICS_MSGS_MSG_STATISTICDATAPOINT_IDL_
+
+module statistics_msgs {
+  module msg {
+    struct StatisticDataPoint {
+      uint8 data_type;
+      double data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STATISTICS_MSGS_MSG_STATISTICDATAPOINT_IDL_

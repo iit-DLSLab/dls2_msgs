@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_SHAPE_MSGS_MSG_MESHTRIANGLE_IDL_
+#define ROS2_INTERFACE_SHAPE_MSGS_MSG_MESHTRIANGLE_IDL_
+
+module shape_msgs {
+  module msg {
+    struct MeshTriangle {
+      uint32 vertex_indices[3];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SHAPE_MSGS_MSG_MESHTRIANGLE_IDL_

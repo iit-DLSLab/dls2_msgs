@@ -1,0 +1,22 @@
+#ifndef ROS2_INTERFACE_SERVICE_MSGS_MSG_SERVICEEVENTINFO_IDL_
+#define ROS2_INTERFACE_SERVICE_MSGS_MSG_SERVICEEVENTINFO_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module service_msgs {
+  module msg {
+    const uint8 REQUEST_SENT = 0;
+    const uint8 REQUEST_RECEIVED = 1;
+    const uint8 RESPONSE_SENT = 2;
+    const uint8 RESPONSE_RECEIVED = 3;
+
+    struct ServiceEventInfo {
+      uint8 event_type;
+      builtin_interfaces::msg::Time stamp;
+      char client_gid[16];
+      int64 sequence_number;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SERVICE_MSGS_MSG_SERVICEEVENTINFO_IDL_

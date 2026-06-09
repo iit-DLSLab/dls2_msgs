@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_FIELD_IDL_
+#define ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_FIELD_IDL_
+
+#include "type_description_interfaces/msg/FieldType.idl"
+
+module type_description_interfaces {
+  module msg {
+    struct Field {
+      string name;
+      type_description_interfaces::msg::FieldType type;
+      string default_value;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_FIELD_IDL_

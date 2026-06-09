@@ -1,0 +1,18 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_JOYFEEDBACK_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_JOYFEEDBACK_IDL_
+
+module sensor_msgs {
+  module msg {
+    const uint8 TYPE_LED = 0;
+    const uint8 TYPE_RUMBLE = 1;
+    const uint8 TYPE_BUZZER = 2;
+
+    struct JoyFeedback {
+      uint8 type;
+      uint8 id;
+      float intensity;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_JOYFEEDBACK_IDL_

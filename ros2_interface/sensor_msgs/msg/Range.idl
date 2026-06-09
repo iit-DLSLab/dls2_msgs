@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_RANGE_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_RANGE_IDL_
+
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    const uint8 ULTRASOUND = 0;
+    const uint8 INFRARED = 1;
+
+    struct Range {
+      std_msgs::msg::Header header;
+      uint8 radiation_type;
+      float field_of_view;
+      float min_range;
+      float max_range;
+      float range;
+      float variance;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_RANGE_IDL_

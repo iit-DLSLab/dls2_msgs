@@ -1,0 +1,18 @@
+#ifndef ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_JOINTTRAJECTORYPOINT_IDL_
+#define ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_JOINTTRAJECTORYPOINT_IDL_
+
+#include "builtin_interfaces/msg/Duration.idl"
+
+module trajectory_msgs {
+  module msg {
+    struct JointTrajectoryPoint {
+      sequence<double> positions;
+      sequence<double> velocities;
+      sequence<double> accelerations;
+      sequence<double> effort;
+      builtin_interfaces::msg::Duration time_from_start;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_JOINTTRAJECTORYPOINT_IDL_

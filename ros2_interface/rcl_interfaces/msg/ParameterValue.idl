@@ -1,0 +1,21 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERVALUE_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERVALUE_IDL_
+
+module rcl_interfaces {
+  module msg {
+    struct ParameterValue {
+      uint8 type;
+      boolean bool_value;
+      int64 integer_value;
+      double double_value;
+      string string_value;
+      sequence<uint8> byte_array_value;
+      sequence<boolean> bool_array_value;
+      sequence<int64> integer_array_value;
+      sequence<double> double_array_value;
+      sequence<string> string_array_value;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETERVALUE_IDL_

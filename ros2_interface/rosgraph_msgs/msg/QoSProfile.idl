@@ -1,0 +1,41 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_QOSPROFILE_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_QOSPROFILE_IDL_
+
+#include "builtin_interfaces/msg/Duration.idl"
+
+module rosgraph_msgs {
+  module msg {
+    const uint8 HISTORY_SYSTEM_DEFAULT = 0;
+    const uint8 HISTORY_KEEP_LAST = 1;
+    const uint8 HISTORY_KEEP_ALL = 2;
+    const uint8 HISTORY_UNKNOWN = 3;
+    const uint8 RELIABILITY_SYSTEM_DEFAULT = 0;
+    const uint8 RELIABILITY_RELIABLE = 1;
+    const uint8 RELIABILITY_BEST_EFFORT = 2;
+    const uint8 RELIABILITY_UNKNOWN = 3;
+    const uint8 RELIABILITY_BEST_AVAILABLE = 4;
+    const uint8 DURABILITY_SYSTEM_DEFAULT = 0;
+    const uint8 DURABILITY_TRANSIENT_LOCAL = 1;
+    const uint8 DURABILITY_VOLATILE = 2;
+    const uint8 DURABILITY_UNKNOWN = 3;
+    const uint8 DURABILITY_BEST_AVAILABLE = 4;
+    const uint8 LIVELINESS_SYSTEM_DEFAULT = 0;
+    const uint8 LIVELINESS_AUTOMATIC = 1;
+    const uint8 LIVELINESS_MANUAL_BY_TOPIC = 3;
+    const uint8 LIVELINESS_UNKNOWN = 4;
+    const uint8 LIVELINESS_BEST_AVAILABLE = 5;
+
+    struct QoSProfile {
+      uint32 depth;
+      builtin_interfaces::msg::Duration deadline;
+      builtin_interfaces::msg::Duration lifespan;
+      uint8 history;
+      uint8 reliability;
+      uint8 durability;
+      uint8 liveliness;
+      builtin_interfaces::msg::Duration liveliness_lease_duration;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_QOSPROFILE_IDL_

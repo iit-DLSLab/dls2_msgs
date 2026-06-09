@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POSEWITHCOVARIANCE_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POSEWITHCOVARIANCE_IDL_
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module geometry_msgs {
+  module msg {
+    struct PoseWithCovariance {
+      geometry_msgs::msg::Pose pose;
+      double covariance[36];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POSEWITHCOVARIANCE_IDL_

@@ -1,0 +1,21 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_INERTIA_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_INERTIA_IDL_
+
+#include "geometry_msgs/msg/Vector3.idl"
+
+module geometry_msgs {
+  module msg {
+    struct Inertia {
+      double m;
+      geometry_msgs::msg::Vector3 com;
+      double ixx;
+      double ixy;
+      double ixz;
+      double iyy;
+      double iyz;
+      double izz;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_INERTIA_IDL_

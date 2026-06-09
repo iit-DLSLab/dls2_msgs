@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGONINSTANCE_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGONINSTANCE_IDL_
+
+#include "geometry_msgs/msg/Polygon.idl"
+
+module geometry_msgs {
+  module msg {
+    struct PolygonInstance {
+      geometry_msgs::msg::Polygon polygon;
+      int64 id;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGONINSTANCE_IDL_

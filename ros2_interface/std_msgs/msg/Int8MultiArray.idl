@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_INT8MULTIARRAY_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_INT8MULTIARRAY_IDL_
+
+#include "std_msgs/msg/MultiArrayLayout.idl"
+
+module std_msgs {
+  module msg {
+    struct Int8MultiArray {
+      std_msgs::msg::MultiArrayLayout layout;
+      sequence<int8> data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_INT8MULTIARRAY_IDL_

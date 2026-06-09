@@ -1,8 +1,8 @@
 #ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TRANSFORM_IDL_
 #define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TRANSFORM_IDL_
 
-#include "Vector3.idl"
-#include "Quaternion.idl"
+#include "geometry_msgs/msg/Quaternion.idl"
+#include "geometry_msgs/msg/Vector3.idl"
 
 module geometry_msgs {
   module msg {

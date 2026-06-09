@@ -1,7 +1,7 @@
-#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_JOINT_STATE_IDL_
-#define ROS2_INTERFACE_SENSOR_MSGS_MSG_JOINT_STATE_IDL_
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_JOINTSTATE_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_JOINTSTATE_IDL_
 
-#include "Header.idl"
+#include "std_msgs/msg/Header.idl"
 
 module sensor_msgs {
   module msg {
@@ -15,4 +15,4 @@ module sensor_msgs {
   };
 };
 
-#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_JOINT_STATE_IDL_
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_JOINTSTATE_IDL_

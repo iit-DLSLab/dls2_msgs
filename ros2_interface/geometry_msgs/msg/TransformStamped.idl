@@ -1,0 +1,17 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TRANSFORMSTAMPED_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TRANSFORMSTAMPED_IDL_
+
+#include "geometry_msgs/msg/Transform.idl"
+#include "std_msgs/msg/Header.idl"
+
+module geometry_msgs {
+  module msg {
+    struct TransformStamped {
+      std_msgs::msg::Header header;
+      string child_frame_id;
+      geometry_msgs::msg::Transform transform;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TRANSFORMSTAMPED_IDL_

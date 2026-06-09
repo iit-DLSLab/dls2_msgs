@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TWISTWITHCOVARIANCE_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TWISTWITHCOVARIANCE_IDL_
+
+#include "geometry_msgs/msg/Twist.idl"
+
+module geometry_msgs {
+  module msg {
+    struct TwistWithCovariance {
+      geometry_msgs::msg::Twist twist;
+      double covariance[36];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_TWISTWITHCOVARIANCE_IDL_

@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_POINTCLOUD2_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_POINTCLOUD2_IDL_
+
+#include "sensor_msgs/msg/PointField.idl"
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct PointCloud2 {
+      std_msgs::msg::Header header;
+      uint32 height;
+      uint32 width;
+      sequence<sensor_msgs::msg::PointField> fields;
+      boolean is_bigendian;
+      uint32 point_step;
+      uint32 row_step;
+      sequence<uint8> data;
+      boolean is_dense;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_POINTCLOUD2_IDL_

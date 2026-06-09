@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERINIT_IDL_
+#define ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERINIT_IDL_
+
+#include "visualization_msgs/msg/InteractiveMarker.idl"
+
+module visualization_msgs {
+  module msg {
+    struct InteractiveMarkerInit {
+      string server_id;
+      uint64 seq_num;
+      sequence<visualization_msgs::msg::InteractiveMarker> markers;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERINIT_IDL_

@@ -1,0 +1,20 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_IMAGE_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_IMAGE_IDL_
+
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct Image {
+      std_msgs::msg::Header header;
+      uint32 height;
+      uint32 width;
+      string encoding;
+      uint8 is_bigendian;
+      uint32 step;
+      sequence<uint8> data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_IMAGE_IDL_

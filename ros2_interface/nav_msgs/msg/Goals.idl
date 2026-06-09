@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_GOALS_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_GOALS_IDL_
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+#include "std_msgs/msg/Header.idl"
+
+module nav_msgs {
+  module msg {
+    struct Goals {
+      std_msgs::msg::Header header;
+      sequence<geometry_msgs::msg::PoseStamped> goals;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_GOALS_IDL_

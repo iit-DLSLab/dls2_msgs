@@ -1,0 +1,26 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_LOG_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_LOG_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module rcl_interfaces {
+  module msg {
+    const uint8 DEBUG = 10;
+    const uint8 INFO = 20;
+    const uint8 WARN = 30;
+    const uint8 ERROR = 40;
+    const uint8 FATAL = 50;
+
+    struct Log {
+      builtin_interfaces::msg::Time stamp;
+      uint8 level;
+      string name;
+      string msg;
+      string file;
+      string function;
+      uint32 line;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_LOG_IDL_

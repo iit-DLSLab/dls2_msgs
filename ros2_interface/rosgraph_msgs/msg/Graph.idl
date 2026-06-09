@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_GRAPH_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_GRAPH_IDL_
+
+#include "rosgraph_msgs/msg/Node.idl"
+
+module rosgraph_msgs {
+  module msg {
+    struct Graph {
+      sequence<rosgraph_msgs::msg::Node> nodes;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_GRAPH_IDL_

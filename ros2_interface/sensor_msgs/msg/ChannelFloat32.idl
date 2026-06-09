@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_CHANNELFLOAT32_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_CHANNELFLOAT32_IDL_
+
+module sensor_msgs {
+  module msg {
+    struct ChannelFloat32 {
+      string name;
+      sequence<float> values;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_CHANNELFLOAT32_IDL_

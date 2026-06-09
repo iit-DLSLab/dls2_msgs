@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_INT64_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_INT64_IDL_
+
+module std_msgs {
+  module msg {
+    struct Int64 {
+      int64 data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_INT64_IDL_

@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_TYPEHASH_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_TYPEHASH_IDL_
+
+module rosgraph_msgs {
+  module msg {
+    struct TypeHash {
+      uint8 version;
+      uint8 value[32];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_TYPEHASH_IDL_

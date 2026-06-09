@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_VECTOR3STAMPED_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_VECTOR3STAMPED_IDL_
+
+#include "geometry_msgs/msg/Vector3.idl"
+#include "std_msgs/msg/Header.idl"
+
+module geometry_msgs {
+  module msg {
+    struct Vector3Stamped {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Vector3 vector;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_VECTOR3STAMPED_IDL_

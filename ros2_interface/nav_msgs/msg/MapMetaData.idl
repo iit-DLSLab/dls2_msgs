@@ -1,0 +1,19 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_MAPMETADATA_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_MAPMETADATA_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "geometry_msgs/msg/Pose.idl"
+
+module nav_msgs {
+  module msg {
+    struct MapMetaData {
+      builtin_interfaces::msg::Time map_load_time;
+      float resolution;
+      uint32 width;
+      uint32 height;
+      geometry_msgs::msg::Pose origin;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_MAPMETADATA_IDL_

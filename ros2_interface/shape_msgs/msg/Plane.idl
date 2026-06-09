@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_SHAPE_MSGS_MSG_PLANE_IDL_
+#define ROS2_INTERFACE_SHAPE_MSGS_MSG_PLANE_IDL_
+
+module shape_msgs {
+  module msg {
+    struct Plane {
+      double coef[4];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SHAPE_MSGS_MSG_PLANE_IDL_

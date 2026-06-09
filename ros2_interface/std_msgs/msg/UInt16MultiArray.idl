@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_UINT16MULTIARRAY_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_UINT16MULTIARRAY_IDL_
+
+#include "std_msgs/msg/MultiArrayLayout.idl"
+
+module std_msgs {
+  module msg {
+    struct UInt16MultiArray {
+      std_msgs::msg::MultiArrayLayout layout;
+      sequence<uint16> data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_UINT16MULTIARRAY_IDL_

@@ -1,0 +1,19 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETEREVENT_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETEREVENT_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "rcl_interfaces/msg/Parameter.idl"
+
+module rcl_interfaces {
+  module msg {
+    struct ParameterEvent {
+      builtin_interfaces::msg::Time stamp;
+      string node;
+      sequence<rcl_interfaces::msg::Parameter> new_parameters;
+      sequence<rcl_interfaces::msg::Parameter> changed_parameters;
+      sequence<rcl_interfaces::msg::Parameter> deleted_parameters;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETEREVENT_IDL_

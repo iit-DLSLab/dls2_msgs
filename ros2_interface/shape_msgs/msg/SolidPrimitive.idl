@@ -1,0 +1,31 @@
+#ifndef ROS2_INTERFACE_SHAPE_MSGS_MSG_SOLIDPRIMITIVE_IDL_
+#define ROS2_INTERFACE_SHAPE_MSGS_MSG_SOLIDPRIMITIVE_IDL_
+
+#include "geometry_msgs/msg/Polygon.idl"
+
+module shape_msgs {
+  module msg {
+    const uint8 BOX = 1;
+    const uint8 SPHERE = 2;
+    const uint8 CYLINDER = 3;
+    const uint8 CONE = 4;
+    const uint8 PRISM = 5;
+    const uint8 BOX_X = 0;
+    const uint8 BOX_Y = 1;
+    const uint8 BOX_Z = 2;
+    const uint8 SPHERE_RADIUS = 0;
+    const uint8 CYLINDER_HEIGHT = 0;
+    const uint8 CYLINDER_RADIUS = 1;
+    const uint8 CONE_HEIGHT = 0;
+    const uint8 CONE_RADIUS = 1;
+    const uint8 PRISM_HEIGHT = 0;
+
+    struct SolidPrimitive {
+      uint8 type;
+      sequence<double, 3> dimensions;
+      geometry_msgs::msg::Polygon polygon;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SHAPE_MSGS_MSG_SOLIDPRIMITIVE_IDL_

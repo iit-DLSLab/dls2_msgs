@@ -1,0 +1,20 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_LOGGERLEVEL_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_LOGGERLEVEL_IDL_
+
+module rcl_interfaces {
+  module msg {
+    const uint8 LOG_LEVEL_UNKNOWN = 0;
+    const uint8 LOG_LEVEL_DEBUG = 10;
+    const uint8 LOG_LEVEL_INFO = 20;
+    const uint8 LOG_LEVEL_WARN = 30;
+    const uint8 LOG_LEVEL_ERROR = 40;
+    const uint8 LOG_LEVEL_FATAL = 50;
+
+    struct LoggerLevel {
+      string name;
+      uint32 level;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_LOGGERLEVEL_IDL_

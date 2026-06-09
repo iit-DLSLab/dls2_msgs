@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_JOYFEEDBACKARRAY_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_JOYFEEDBACKARRAY_IDL_
+
+#include "sensor_msgs/msg/JoyFeedback.idl"
+
+module sensor_msgs {
+  module msg {
+    struct JoyFeedbackArray {
+      sequence<sensor_msgs::msg::JoyFeedback> array;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_JOYFEEDBACKARRAY_IDL_

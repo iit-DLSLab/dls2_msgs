@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_LASERSCAN_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_LASERSCAN_IDL_
+
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct LaserScan {
+      std_msgs::msg::Header header;
+      float angle_min;
+      float angle_max;
+      float angle_increment;
+      float time_increment;
+      float scan_time;
+      float range_min;
+      float range_max;
+      sequence<float> ranges;
+      sequence<float> intensities;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_LASERSCAN_IDL_

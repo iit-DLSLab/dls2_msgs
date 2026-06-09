@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_INDIVIDUALTYPEDESCRIPTION_IDL_
+#define ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_INDIVIDUALTYPEDESCRIPTION_IDL_
+
+#include "type_description_interfaces/msg/Field.idl"
+
+module type_description_interfaces {
+  module msg {
+    struct IndividualTypeDescription {
+      string<255> type_name;
+      sequence<type_description_interfaces::msg::Field> fields;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_INDIVIDUALTYPEDESCRIPTION_IDL_

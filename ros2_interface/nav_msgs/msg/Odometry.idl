@@ -1,0 +1,19 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_ODOMETRY_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_ODOMETRY_IDL_
+
+#include "geometry_msgs/msg/PoseWithCovariance.idl"
+#include "geometry_msgs/msg/TwistWithCovariance.idl"
+#include "std_msgs/msg/Header.idl"
+
+module nav_msgs {
+  module msg {
+    struct Odometry {
+      std_msgs::msg::Header header;
+      string child_frame_id;
+      geometry_msgs::msg::PoseWithCovariance pose;
+      geometry_msgs::msg::TwistWithCovariance twist;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_ODOMETRY_IDL_
