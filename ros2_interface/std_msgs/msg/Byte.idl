@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_BYTE_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_BYTE_IDL_
+
+module std_msgs {
+  module msg {
+    struct Byte {
+      uint8 data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_BYTE_IDL_

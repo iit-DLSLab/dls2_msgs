@@ -1,0 +1,17 @@
+#ifndef ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_JOINTTRAJECTORY_IDL_
+#define ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_JOINTTRAJECTORY_IDL_
+
+#include "std_msgs/msg/Header.idl"
+#include "trajectory_msgs/msg/JointTrajectoryPoint.idl"
+
+module trajectory_msgs {
+  module msg {
+    struct JointTrajectory {
+      std_msgs::msg::Header header;
+      sequence<string> joint_names;
+      sequence<trajectory_msgs::msg::JointTrajectoryPoint> points;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_JOINTTRAJECTORY_IDL_

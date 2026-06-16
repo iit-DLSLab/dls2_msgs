@@ -1,0 +1,20 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_ACTION_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_ACTION_IDL_
+
+#include "rosgraph_msgs/msg/Service.idl"
+#include "rosgraph_msgs/msg/Topic.idl"
+
+module rosgraph_msgs {
+  module msg {
+    struct Action {
+      string name;
+      rosgraph_msgs::msg::Service send_goal;
+      rosgraph_msgs::msg::Service get_result;
+      rosgraph_msgs::msg::Service cancel_goal;
+      rosgraph_msgs::msg::Topic feedback;
+      rosgraph_msgs::msg::Topic status;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_ACTION_IDL_

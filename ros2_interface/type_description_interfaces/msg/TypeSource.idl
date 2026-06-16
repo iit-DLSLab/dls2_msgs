@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_TYPESOURCE_IDL_
+#define ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_TYPESOURCE_IDL_
+
+module type_description_interfaces {
+  module msg {
+    struct TypeSource {
+      string type_name;
+      string encoding;
+      string raw_file_contents;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_TYPESOURCE_IDL_

@@ -1,0 +1,26 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_NODE_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_NODE_IDL_
+
+#include "rcl_interfaces/msg/ParameterDescriptor.idl"
+#include "rcl_interfaces/msg/ParameterValue.idl"
+#include "rosgraph_msgs/msg/Action.idl"
+#include "rosgraph_msgs/msg/Service.idl"
+#include "rosgraph_msgs/msg/Topic.idl"
+
+module rosgraph_msgs {
+  module msg {
+    struct Node {
+      string name;
+      sequence<rcl_interfaces::msg::ParameterDescriptor> parameters;
+      sequence<rcl_interfaces::msg::ParameterValue> parameter_values;
+      sequence<rosgraph_msgs::msg::Topic> publishers;
+      sequence<rosgraph_msgs::msg::Topic> subscriptions;
+      sequence<rosgraph_msgs::msg::Service> service_clients;
+      sequence<rosgraph_msgs::msg::Service> service_servers;
+      sequence<rosgraph_msgs::msg::Action> action_clients;
+      sequence<rosgraph_msgs::msg::Action> action_servers;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_NODE_IDL_

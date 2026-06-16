@@ -1,0 +1,17 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_OCCUPANCYGRID_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_OCCUPANCYGRID_IDL_
+
+#include "nav_msgs/msg/MapMetaData.idl"
+#include "std_msgs/msg/Header.idl"
+
+module nav_msgs {
+  module msg {
+    struct OccupancyGrid {
+      std_msgs::msg::Header header;
+      nav_msgs::msg::MapMetaData info;
+      sequence<int8> data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_OCCUPANCYGRID_IDL_

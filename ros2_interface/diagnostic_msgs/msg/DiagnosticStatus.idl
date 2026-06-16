@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_DIAGNOSTICSTATUS_IDL_
+#define ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_DIAGNOSTICSTATUS_IDL_
+
+#include "diagnostic_msgs/msg/KeyValue.idl"
+
+module diagnostic_msgs {
+  module msg {
+    const uint8 OK = 0;
+    const uint8 WARN = 1;
+    const uint8 ERROR = 2;
+    const uint8 STALE = 3;
+
+    struct DiagnosticStatus {
+      uint8 level;
+      string name;
+      string message;
+      string hardware_id;
+      sequence<diagnostic_msgs::msg::KeyValue> values;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_DIAGNOSTICSTATUS_IDL_

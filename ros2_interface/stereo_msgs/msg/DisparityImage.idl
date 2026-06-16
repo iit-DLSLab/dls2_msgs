@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_STEREO_MSGS_MSG_DISPARITYIMAGE_IDL_
+#define ROS2_INTERFACE_STEREO_MSGS_MSG_DISPARITYIMAGE_IDL_
+
+#include "sensor_msgs/msg/Image.idl"
+#include "sensor_msgs/msg/RegionOfInterest.idl"
+#include "std_msgs/msg/Header.idl"
+
+module stereo_msgs {
+  module msg {
+    struct DisparityImage {
+      std_msgs::msg::Header header;
+      sensor_msgs::msg::Image image;
+      float f;
+      float t;
+      sensor_msgs::msg::RegionOfInterest valid_window;
+      float min_disparity;
+      float max_disparity;
+      float delta_d;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STEREO_MSGS_MSG_DISPARITYIMAGE_IDL_

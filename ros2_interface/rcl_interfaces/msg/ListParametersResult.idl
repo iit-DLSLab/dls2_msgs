@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_LISTPARAMETERSRESULT_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_LISTPARAMETERSRESULT_IDL_
+
+module rcl_interfaces {
+  module msg {
+    struct ListParametersResult {
+      sequence<string> names;
+      sequence<string> prefixes;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_LISTPARAMETERSRESULT_IDL_

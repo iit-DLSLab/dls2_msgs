@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_INTEGERRANGE_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_INTEGERRANGE_IDL_
+
+module rcl_interfaces {
+  module msg {
+    struct IntegerRange {
+      int64 from_value;
+      int64 to_value;
+      uint64 step;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_INTEGERRANGE_IDL_

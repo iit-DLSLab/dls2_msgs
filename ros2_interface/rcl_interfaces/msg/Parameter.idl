@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETER_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETER_IDL_
+
+#include "rcl_interfaces/msg/ParameterValue.idl"
+
+module rcl_interfaces {
+  module msg {
+    struct Parameter {
+      string name;
+      rcl_interfaces::msg::ParameterValue value;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETER_IDL_

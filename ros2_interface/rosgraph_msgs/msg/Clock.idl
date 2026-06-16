@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_CLOCK_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_CLOCK_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module rosgraph_msgs {
+  module msg {
+    struct Clock {
+      builtin_interfaces::msg::Time clock;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_CLOCK_IDL_

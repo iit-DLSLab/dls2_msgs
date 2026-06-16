@@ -1,0 +1,19 @@
+#ifndef ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_MULTIDOFJOINTTRAJECTORYPOINT_IDL_
+#define ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_MULTIDOFJOINTTRAJECTORYPOINT_IDL_
+
+#include "builtin_interfaces/msg/Duration.idl"
+#include "geometry_msgs/msg/Transform.idl"
+#include "geometry_msgs/msg/Twist.idl"
+
+module trajectory_msgs {
+  module msg {
+    struct MultiDOFJointTrajectoryPoint {
+      sequence<geometry_msgs::msg::Transform> transforms;
+      sequence<geometry_msgs::msg::Twist> velocities;
+      sequence<geometry_msgs::msg::Twist> accelerations;
+      builtin_interfaces::msg::Duration time_from_start;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TRAJECTORY_MSGS_MSG_MULTIDOFJOINTTRAJECTORYPOINT_IDL_

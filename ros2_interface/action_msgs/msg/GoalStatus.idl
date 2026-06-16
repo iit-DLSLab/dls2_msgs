@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_ACTION_MSGS_MSG_GOALSTATUS_IDL_
+#define ROS2_INTERFACE_ACTION_MSGS_MSG_GOALSTATUS_IDL_
+
+#include "action_msgs/msg/GoalInfo.idl"
+
+module action_msgs {
+  module msg {
+    const int8 STATUS_UNKNOWN = 0;
+    const int8 STATUS_ACCEPTED = 1;
+    const int8 STATUS_EXECUTING = 2;
+    const int8 STATUS_CANCELING = 3;
+    const int8 STATUS_SUCCEEDED = 4;
+    const int8 STATUS_CANCELED = 5;
+    const int8 STATUS_ABORTED = 6;
+
+    struct GoalStatus {
+      action_msgs::msg::GoalInfo goal_info;
+      int8 status;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ACTION_MSGS_MSG_GOALSTATUS_IDL_

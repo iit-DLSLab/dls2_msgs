@@ -1,0 +1,17 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_MAGNETICFIELD_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_MAGNETICFIELD_IDL_
+
+#include "geometry_msgs/msg/Vector3.idl"
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct MagneticField {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Vector3 magnetic_field;
+      double magnetic_field_covariance[9];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_MAGNETICFIELD_IDL_

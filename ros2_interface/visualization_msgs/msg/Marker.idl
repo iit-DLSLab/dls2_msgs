@@ -1,0 +1,58 @@
+#ifndef ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_MARKER_IDL_
+#define ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_MARKER_IDL_
+
+#include "builtin_interfaces/msg/Duration.idl"
+#include "geometry_msgs/msg/Point.idl"
+#include "geometry_msgs/msg/Pose.idl"
+#include "geometry_msgs/msg/Vector3.idl"
+#include "sensor_msgs/msg/CompressedImage.idl"
+#include "std_msgs/msg/ColorRGBA.idl"
+#include "std_msgs/msg/Header.idl"
+#include "visualization_msgs/msg/MeshFile.idl"
+#include "visualization_msgs/msg/UVCoordinate.idl"
+
+module visualization_msgs {
+  module msg {
+    const int32 ARROW = 0;
+    const int32 CUBE = 1;
+    const int32 SPHERE = 2;
+    const int32 CYLINDER = 3;
+    const int32 LINE_STRIP = 4;
+    const int32 LINE_LIST = 5;
+    const int32 CUBE_LIST = 6;
+    const int32 SPHERE_LIST = 7;
+    const int32 POINTS = 8;
+    const int32 TEXT_VIEW_FACING = 9;
+    const int32 MESH_RESOURCE = 10;
+    const int32 TRIANGLE_LIST = 11;
+    const int32 ARROW_STRIP = 12;
+    const int32 ADD = 0;
+    const int32 MODIFY = 0;
+    const int32 DELETE = 2;
+    const int32 DELETEALL = 3;
+
+    struct Marker {
+      std_msgs::msg::Header header;
+      string ns;
+      int32 id;
+      int32 type;
+      int32 action;
+      geometry_msgs::msg::Pose pose;
+      geometry_msgs::msg::Vector3 scale;
+      std_msgs::msg::ColorRGBA color;
+      builtin_interfaces::msg::Duration lifetime;
+      boolean frame_locked;
+      sequence<geometry_msgs::msg::Point> points;
+      sequence<std_msgs::msg::ColorRGBA> colors;
+      string texture_resource;
+      sensor_msgs::msg::CompressedImage texture;
+      sequence<visualization_msgs::msg::UVCoordinate> uv_coordinates;
+      string text;
+      string mesh_resource;
+      visualization_msgs::msg::MeshFile mesh_file;
+      boolean mesh_use_embedded_materials;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_MARKER_IDL_

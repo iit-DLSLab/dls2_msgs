@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_CHAR_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_CHAR_IDL_
+
+module std_msgs {
+  module msg {
+    struct Char {
+      char data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_CHAR_IDL_

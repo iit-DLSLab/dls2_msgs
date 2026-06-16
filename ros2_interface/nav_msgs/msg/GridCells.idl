@@ -1,0 +1,18 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_GRIDCELLS_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_GRIDCELLS_IDL_
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/Header.idl"
+
+module nav_msgs {
+  module msg {
+    struct GridCells {
+      std_msgs::msg::Header header;
+      float cell_width;
+      float cell_height;
+      sequence<geometry_msgs::msg::Point> cells;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_GRIDCELLS_IDL_

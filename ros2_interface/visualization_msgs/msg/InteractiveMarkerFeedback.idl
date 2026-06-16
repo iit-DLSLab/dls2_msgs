@@ -1,0 +1,31 @@
+#ifndef ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERFEEDBACK_IDL_
+#define ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERFEEDBACK_IDL_
+
+#include "geometry_msgs/msg/Point.idl"
+#include "geometry_msgs/msg/Pose.idl"
+#include "std_msgs/msg/Header.idl"
+
+module visualization_msgs {
+  module msg {
+    const uint8 KEEP_ALIVE = 0;
+    const uint8 POSE_UPDATE = 1;
+    const uint8 MENU_SELECT = 2;
+    const uint8 BUTTON_CLICK = 3;
+    const uint8 MOUSE_DOWN = 4;
+    const uint8 MOUSE_UP = 5;
+
+    struct InteractiveMarkerFeedback {
+      std_msgs::msg::Header header;
+      string client_id;
+      string marker_name;
+      string control_name;
+      uint8 event_type;
+      geometry_msgs::msg::Pose pose;
+      uint32 menu_entry_id;
+      geometry_msgs::msg::Point mouse_point;
+      boolean mouse_point_valid;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERFEEDBACK_IDL_

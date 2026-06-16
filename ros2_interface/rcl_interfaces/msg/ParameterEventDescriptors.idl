@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETEREVENTDESCRIPTORS_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETEREVENTDESCRIPTORS_IDL_
+
+#include "rcl_interfaces/msg/ParameterDescriptor.idl"
+
+module rcl_interfaces {
+  module msg {
+    struct ParameterEventDescriptors {
+      sequence<rcl_interfaces::msg::ParameterDescriptor> new_parameters;
+      sequence<rcl_interfaces::msg::ParameterDescriptor> changed_parameters;
+      sequence<rcl_interfaces::msg::ParameterDescriptor> deleted_parameters;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_PARAMETEREVENTDESCRIPTORS_IDL_

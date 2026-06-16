@@ -1,0 +1,11 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_EMPTY_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_EMPTY_IDL_
+
+module std_msgs {
+  module msg {
+    struct Empty {
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_EMPTY_IDL_

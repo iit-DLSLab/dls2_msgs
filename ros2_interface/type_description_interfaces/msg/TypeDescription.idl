@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_TYPEDESCRIPTION_IDL_
+#define ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_TYPEDESCRIPTION_IDL_
+
+#include "type_description_interfaces/msg/IndividualTypeDescription.idl"
+
+module type_description_interfaces {
+  module msg {
+    struct TypeDescription {
+      type_description_interfaces::msg::IndividualTypeDescription type_description;
+      sequence<type_description_interfaces::msg::IndividualTypeDescription> referenced_type_descriptions;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_TYPEDESCRIPTION_IDL_

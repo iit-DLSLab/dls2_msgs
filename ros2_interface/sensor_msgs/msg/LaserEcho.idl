@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_LASERECHO_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_LASERECHO_IDL_
+
+module sensor_msgs {
+  module msg {
+    struct LaserEcho {
+      sequence<float> echoes;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_LASERECHO_IDL_

@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POSEWITHCOVARIANCESTAMPED_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POSEWITHCOVARIANCESTAMPED_IDL_
+
+#include "geometry_msgs/msg/PoseWithCovariance.idl"
+#include "std_msgs/msg/Header.idl"
+
+module geometry_msgs {
+  module msg {
+    struct PoseWithCovarianceStamped {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::PoseWithCovariance pose;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POSEWITHCOVARIANCESTAMPED_IDL_

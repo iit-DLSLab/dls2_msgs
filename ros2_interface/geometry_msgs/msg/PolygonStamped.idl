@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGONSTAMPED_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGONSTAMPED_IDL_
+
+#include "geometry_msgs/msg/Polygon.idl"
+#include "std_msgs/msg/Header.idl"
+
+module geometry_msgs {
+  module msg {
+    struct PolygonStamped {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Polygon polygon;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_POLYGONSTAMPED_IDL_

@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_ACTION_MSGS_MSG_GOALSTATUSARRAY_IDL_
+#define ROS2_INTERFACE_ACTION_MSGS_MSG_GOALSTATUSARRAY_IDL_
+
+#include "action_msgs/msg/GoalStatus.idl"
+
+module action_msgs {
+  module msg {
+    struct GoalStatusArray {
+      sequence<action_msgs::msg::GoalStatus> status_list;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ACTION_MSGS_MSG_GOALSTATUSARRAY_IDL_

@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_INERTIASTAMPED_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_INERTIASTAMPED_IDL_
+
+#include "geometry_msgs/msg/Inertia.idl"
+#include "std_msgs/msg/Header.idl"
+
+module geometry_msgs {
+  module msg {
+    struct InertiaStamped {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Inertia inertia;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_INERTIASTAMPED_IDL_

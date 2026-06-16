@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_ACCEL_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_ACCEL_IDL_
+
+#include "geometry_msgs/msg/Vector3.idl"
+
+module geometry_msgs {
+  module msg {
+    struct Accel {
+      geometry_msgs::msg::Vector3 linear;
+      geometry_msgs::msg::Vector3 angular;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_ACCEL_IDL_

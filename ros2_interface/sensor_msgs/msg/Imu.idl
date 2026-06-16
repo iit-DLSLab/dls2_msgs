@@ -1,0 +1,22 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_IMU_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_IMU_IDL_
+
+#include "geometry_msgs/msg/Quaternion.idl"
+#include "geometry_msgs/msg/Vector3.idl"
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct Imu {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Quaternion orientation;
+      double orientation_covariance[9];
+      geometry_msgs::msg::Vector3 angular_velocity;
+      double angular_velocity_covariance[9];
+      geometry_msgs::msg::Vector3 linear_acceleration;
+      double linear_acceleration_covariance[9];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_IMU_IDL_

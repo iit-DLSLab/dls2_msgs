@@ -1,0 +1,24 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_NAVSATSTATUS_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_NAVSATSTATUS_IDL_
+
+module sensor_msgs {
+  module msg {
+    const int8 STATUS_UNKNOWN = -2;
+    const int8 STATUS_NO_FIX = -1;
+    const int8 STATUS_FIX = 0;
+    const int8 STATUS_SBAS_FIX = 1;
+    const int8 STATUS_GBAS_FIX = 2;
+    const uint16 SERVICE_UNKNOWN = 0;
+    const uint16 SERVICE_GPS = 1;
+    const uint16 SERVICE_GLONASS = 2;
+    const uint16 SERVICE_COMPASS = 4;
+    const uint16 SERVICE_GALILEO = 8;
+
+    struct NavSatStatus {
+      int8 status;
+      uint16 service;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_NAVSATSTATUS_IDL_

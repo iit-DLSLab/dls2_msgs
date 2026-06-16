@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_SHAPE_MSGS_MSG_MESH_IDL_
+#define ROS2_INTERFACE_SHAPE_MSGS_MSG_MESH_IDL_
+
+#include "geometry_msgs/msg/Point.idl"
+#include "shape_msgs/msg/MeshTriangle.idl"
+
+module shape_msgs {
+  module msg {
+    struct Mesh {
+      sequence<shape_msgs::msg::MeshTriangle> triangles;
+      sequence<geometry_msgs::msg::Point> vertices;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SHAPE_MSGS_MSG_MESH_IDL_

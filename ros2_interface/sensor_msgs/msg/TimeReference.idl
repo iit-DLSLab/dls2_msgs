@@ -1,0 +1,17 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_TIMEREFERENCE_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_TIMEREFERENCE_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct TimeReference {
+      std_msgs::msg::Header header;
+      builtin_interfaces::msg::Time time_ref;
+      string source;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_TIMEREFERENCE_IDL_

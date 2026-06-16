@@ -1,0 +1,12 @@
+#ifndef ROS2_INTERFACE_UNIQUE_IDENTIFIER_MSGS_MSG_UUID_IDL_
+#define ROS2_INTERFACE_UNIQUE_IDENTIFIER_MSGS_MSG_UUID_IDL_
+
+module unique_identifier_msgs {
+  module msg {
+    struct UUID {
+      uint8 uuid[16];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_UNIQUE_IDENTIFIER_MSGS_MSG_UUID_IDL_

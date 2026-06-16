@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_ACCELWITHCOVARIANCE_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_ACCELWITHCOVARIANCE_IDL_
+
+#include "geometry_msgs/msg/Accel.idl"
+
+module geometry_msgs {
+  module msg {
+    struct AccelWithCovariance {
+      geometry_msgs::msg::Accel accel;
+      double covariance[36];
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_ACCELWITHCOVARIANCE_IDL_

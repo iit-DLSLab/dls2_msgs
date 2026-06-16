@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_WRENCH_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_WRENCH_IDL_
+
+#include "geometry_msgs/msg/Vector3.idl"
+
+module geometry_msgs {
+  module msg {
+    struct Wrench {
+      geometry_msgs::msg::Vector3 force;
+      geometry_msgs::msg::Vector3 torque;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_WRENCH_IDL_

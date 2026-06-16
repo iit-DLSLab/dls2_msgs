@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_TEST_MSGS_MSG_BUILTINS_IDL_
+#define ROS2_INTERFACE_TEST_MSGS_MSG_BUILTINS_IDL_
+
+#include "builtin_interfaces/msg/Duration.idl"
+#include "builtin_interfaces/msg/Time.idl"
+
+module test_msgs {
+  module msg {
+    struct Builtins {
+      builtin_interfaces::msg::Duration duration_value;
+      builtin_interfaces::msg::Time time_value;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TEST_MSGS_MSG_BUILTINS_IDL_

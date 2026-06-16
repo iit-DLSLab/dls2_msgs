@@ -1,0 +1,22 @@
+#ifndef ROS2_INTERFACE_NAV_MSGS_MSG_TRAJECTORYPOINT_IDL_
+#define ROS2_INTERFACE_NAV_MSGS_MSG_TRAJECTORYPOINT_IDL_
+
+#include "geometry_msgs/msg/Accel.idl"
+#include "geometry_msgs/msg/Pose.idl"
+#include "geometry_msgs/msg/Twist.idl"
+#include "geometry_msgs/msg/Wrench.idl"
+#include "std_msgs/msg/Header.idl"
+
+module nav_msgs {
+  module msg {
+    struct TrajectoryPoint {
+      std_msgs::msg::Header header;
+      geometry_msgs::msg::Pose pose;
+      geometry_msgs::msg::Twist velocity;
+      geometry_msgs::msg::Accel acceleration;
+      geometry_msgs::msg::Wrench effort;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_NAV_MSGS_MSG_TRAJECTORYPOINT_IDL_

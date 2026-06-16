@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_COMPRESSEDIMAGE_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_COMPRESSEDIMAGE_IDL_
+
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct CompressedImage {
+      std_msgs::msg::Header header;
+      string format;
+      sequence<uint8> data;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_COMPRESSEDIMAGE_IDL_

@@ -1,0 +1,21 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_MULTIDOFJOINTSTATE_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_MULTIDOFJOINTSTATE_IDL_
+
+#include "geometry_msgs/msg/Transform.idl"
+#include "geometry_msgs/msg/Twist.idl"
+#include "geometry_msgs/msg/Wrench.idl"
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct MultiDOFJointState {
+      std_msgs::msg::Header header;
+      sequence<string> joint_names;
+      sequence<geometry_msgs::msg::Transform> transforms;
+      sequence<geometry_msgs::msg::Twist> twist;
+      sequence<geometry_msgs::msg::Wrench> wrench;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_MULTIDOFJOINTSTATE_IDL_

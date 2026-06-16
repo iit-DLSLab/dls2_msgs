@@ -1,0 +1,17 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_TOPIC_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_TOPIC_IDL_
+
+#include "rosgraph_msgs/msg/InterfaceType.idl"
+#include "rosgraph_msgs/msg/QoSProfile.idl"
+
+module rosgraph_msgs {
+  module msg {
+    struct Topic {
+      string name;
+      rosgraph_msgs::msg::InterfaceType type;
+      rosgraph_msgs::msg::QoSProfile qos;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_TOPIC_IDL_

@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_STD_MSGS_MSG_MULTIARRAYDIMENSION_IDL_
+#define ROS2_INTERFACE_STD_MSGS_MSG_MULTIARRAYDIMENSION_IDL_
+
+module std_msgs {
+  module msg {
+    struct MultiArrayDimension {
+      string label;
+      uint32 size;
+      uint32 stride;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_STD_MSGS_MSG_MULTIARRAYDIMENSION_IDL_

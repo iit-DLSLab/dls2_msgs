@@ -1,0 +1,15 @@
+#ifndef ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_INTERFACETYPE_IDL_
+#define ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_INTERFACETYPE_IDL_
+
+#include "rosgraph_msgs/msg/TypeHash.idl"
+
+module rosgraph_msgs {
+  module msg {
+    struct InterfaceType {
+      string name;
+      rosgraph_msgs::msg::TypeHash hash;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_ROSGRAPH_MSGS_MSG_INTERFACETYPE_IDL_

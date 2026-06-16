@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_MARKERARRAY_IDL_
+#define ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_MARKERARRAY_IDL_
+
+#include "visualization_msgs/msg/Marker.idl"
+
+module visualization_msgs {
+  module msg {
+    struct MarkerArray {
+      sequence<visualization_msgs::msg::Marker> markers;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_MARKERARRAY_IDL_

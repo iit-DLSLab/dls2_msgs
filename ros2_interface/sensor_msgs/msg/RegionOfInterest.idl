@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_REGIONOFINTEREST_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_REGIONOFINTEREST_IDL_
+
+module sensor_msgs {
+  module msg {
+    struct RegionOfInterest {
+      uint32 x_offset;
+      uint32 y_offset;
+      uint32 height;
+      uint32 width;
+      boolean do_rectify;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_REGIONOFINTEREST_IDL_

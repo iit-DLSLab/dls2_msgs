@@ -1,0 +1,19 @@
+#ifndef ROS2_INTERFACE_LIFECYCLE_MSGS_MSG_TRANSITIONEVENT_IDL_
+#define ROS2_INTERFACE_LIFECYCLE_MSGS_MSG_TRANSITIONEVENT_IDL_
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "lifecycle_msgs/msg/State.idl"
+#include "lifecycle_msgs/msg/Transition.idl"
+
+module lifecycle_msgs {
+  module msg {
+    struct TransitionEvent {
+      builtin_interfaces::msg::Time stamp;
+      lifecycle_msgs::msg::Transition transition;
+      lifecycle_msgs::msg::State start_state;
+      lifecycle_msgs::msg::State goal_state;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_LIFECYCLE_MSGS_MSG_TRANSITIONEVENT_IDL_

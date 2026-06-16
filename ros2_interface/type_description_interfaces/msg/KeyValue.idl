@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_KEYVALUE_IDL_
+#define ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_KEYVALUE_IDL_
+
+module type_description_interfaces {
+  module msg {
+    struct KeyValue {
+      string key;
+      string value;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_TYPE_DESCRIPTION_INTERFACES_MSG_KEYVALUE_IDL_

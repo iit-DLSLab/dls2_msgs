@@ -1,0 +1,18 @@
+#ifndef ROS2_INTERFACE_GEOMETRY_MSGS_MSG_VELOCITYWITHCOVARIANCESTAMPED_IDL_
+#define ROS2_INTERFACE_GEOMETRY_MSGS_MSG_VELOCITYWITHCOVARIANCESTAMPED_IDL_
+
+#include "geometry_msgs/msg/TwistWithCovariance.idl"
+#include "std_msgs/msg/Header.idl"
+
+module geometry_msgs {
+  module msg {
+    struct VelocityWithCovarianceStamped {
+      std_msgs::msg::Header header;
+      string body_frame_id;
+      string reference_frame_id;
+      geometry_msgs::msg::TwistWithCovariance velocity;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_GEOMETRY_MSGS_MSG_VELOCITYWITHCOVARIANCESTAMPED_IDL_

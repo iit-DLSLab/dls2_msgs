@@ -1,0 +1,23 @@
+#ifndef ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERUPDATE_IDL_
+#define ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERUPDATE_IDL_
+
+#include "visualization_msgs/msg/InteractiveMarker.idl"
+#include "visualization_msgs/msg/InteractiveMarkerPose.idl"
+
+module visualization_msgs {
+  module msg {
+    const uint8 KEEP_ALIVE = 0;
+    const uint8 UPDATE = 1;
+
+    struct InteractiveMarkerUpdate {
+      string server_id;
+      uint64 seq_num;
+      uint8 type;
+      sequence<visualization_msgs::msg::InteractiveMarker> markers;
+      sequence<visualization_msgs::msg::InteractiveMarkerPose> poses;
+      sequence<string> erases;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_VISUALIZATION_MSGS_MSG_INTERACTIVEMARKERUPDATE_IDL_

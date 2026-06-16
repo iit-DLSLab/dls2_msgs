@@ -1,0 +1,13 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_SETLOGGERLEVELSRESULT_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_SETLOGGERLEVELSRESULT_IDL_
+
+module rcl_interfaces {
+  module msg {
+    struct SetLoggerLevelsResult {
+      boolean successful;
+      string reason;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_SETLOGGERLEVELSRESULT_IDL_

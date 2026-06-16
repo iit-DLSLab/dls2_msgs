@@ -1,0 +1,14 @@
+#ifndef ROS2_INTERFACE_RCL_INTERFACES_MSG_FLOATINGPOINTRANGE_IDL_
+#define ROS2_INTERFACE_RCL_INTERFACES_MSG_FLOATINGPOINTRANGE_IDL_
+
+module rcl_interfaces {
+  module msg {
+    struct FloatingPointRange {
+      double from_value;
+      double to_value;
+      double step;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_RCL_INTERFACES_MSG_FLOATINGPOINTRANGE_IDL_

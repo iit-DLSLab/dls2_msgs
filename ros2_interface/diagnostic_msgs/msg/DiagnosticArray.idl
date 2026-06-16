@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_DIAGNOSTICARRAY_IDL_
+#define ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_DIAGNOSTICARRAY_IDL_
+
+#include "diagnostic_msgs/msg/DiagnosticStatus.idl"
+#include "std_msgs/msg/Header.idl"
+
+module diagnostic_msgs {
+  module msg {
+    struct DiagnosticArray {
+      std_msgs::msg::Header header;
+      sequence<diagnostic_msgs::msg::DiagnosticStatus> status;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_DIAGNOSTIC_MSGS_MSG_DIAGNOSTICARRAY_IDL_

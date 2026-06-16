@@ -1,0 +1,27 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_POINTFIELD_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_POINTFIELD_IDL_
+
+module sensor_msgs {
+  module msg {
+    const uint8 INT8 = 1;
+    const uint8 UINT8 = 2;
+    const uint8 INT16 = 3;
+    const uint8 UINT16 = 4;
+    const uint8 INT32 = 5;
+    const uint8 UINT32 = 6;
+    const uint8 FLOAT32 = 7;
+    const uint8 FLOAT64 = 8;
+    const uint8 INT64 = 9;
+    const uint8 UINT64 = 10;
+    const uint8 BOOL = 11;
+
+    struct PointField {
+      string name;
+      uint32 offset;
+      uint8 datatype;
+      uint32 count;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_POINTFIELD_IDL_

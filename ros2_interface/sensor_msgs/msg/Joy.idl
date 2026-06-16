@@ -1,0 +1,16 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_JOY_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_JOY_IDL_
+
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    struct Joy {
+      std_msgs::msg::Header header;
+      sequence<float> axes;
+      sequence<int32> buttons;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_JOY_IDL_

@@ -1,0 +1,26 @@
+#ifndef ROS2_INTERFACE_SENSOR_MSGS_MSG_NAVSATFIX_IDL_
+#define ROS2_INTERFACE_SENSOR_MSGS_MSG_NAVSATFIX_IDL_
+
+#include "sensor_msgs/msg/NavSatStatus.idl"
+#include "std_msgs/msg/Header.idl"
+
+module sensor_msgs {
+  module msg {
+    const uint8 COVARIANCE_TYPE_UNKNOWN = 0;
+    const uint8 COVARIANCE_TYPE_APPROXIMATED = 1;
+    const uint8 COVARIANCE_TYPE_DIAGONAL_KNOWN = 2;
+    const uint8 COVARIANCE_TYPE_KNOWN = 3;
+
+    struct NavSatFix {
+      std_msgs::msg::Header header;
+      sensor_msgs::msg::NavSatStatus status;
+      double latitude;
+      double longitude;
+      double altitude;
+      double position_covariance[9];
+      uint8 position_covariance_type;
+    };
+  };
+};
+
+#endif // ROS2_INTERFACE_SENSOR_MSGS_MSG_NAVSATFIX_IDL_
