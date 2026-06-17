@@ -1,9 +1,0 @@
-#include "PoseStamped.idl"
-
-module vinum_apf_msgs {
-  module msg {
-    struct APFdebug {
-      sequence<geometry_msgs::msg::PoseStamped> goal_pose_array;
-    };
-  };
-};

@@ -3,9 +3,9 @@
 
 module geometry_msgs {
   module msg {
-    struct PoseStamped {
+    struct PoseArray {
       std_msgs::msg::Header header;
-      geometry_msgs::msg::Pose pose;
+      sequence<geometry_msgs::msg::Pose> poses;
     };
   };
 };
