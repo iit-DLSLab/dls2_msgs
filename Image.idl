@@ -1,0 +1,20 @@
+module dls2_interface
+{
+  module msg
+  {
+    struct Image
+    {
+      // header
+      string frame_id;
+      unsigned long sequence_id;
+      double timestamp;
+
+      uint32 height;
+      uint32 width;
+      string encoding;
+      octet is_bigendian;
+      uint32 step;
+      sequence<octet> data;
+    };
+  };
+};
