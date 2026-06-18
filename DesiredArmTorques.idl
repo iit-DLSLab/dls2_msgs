@@ -11,7 +11,7 @@ module dls2_interface
 
       // data
       sequence<double> desired_arm_torques;
-      double desired_arm_gripper_torque;
+      double desired_arm_gripper_position;
     };
   };
 };
