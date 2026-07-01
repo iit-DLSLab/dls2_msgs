@@ -55,13 +55,14 @@ if(NOT COMMAND dls_install)
     include(FetchContent)
     FetchContent_Declare(
         dls2_cmake
-        GIT_REPOSITORY https://github.com/iit-DLSLab/dls2.git
-        GIT_TAG        main
-        GIT_SHALLOW    TRUE
+        GIT_REPOSITORY    https://github.com/iit-DLSLab/dls2.git
+        GIT_TAG           main
+        GIT_SHALLOW       TRUE
+        GIT_SUBMODULES    ""   # we only need the cmake/ folder — skip all submodules
     )
     FetchContent_GetProperties(dls2_cmake)
     if(NOT dls2_cmake_POPULATED)
-        message(STATUS "Cloning dls2 (shallow) from git@github.com:iit-DLSLab/dls2.git ...")
+        message(STATUS "Cloning dls2 (shallow) from https://github.com/iit-DLSLab/dls2.git ...")
         FetchContent_Populate(dls2_cmake)
         message(STATUS "dls2 cmake modules fetched to: ${dls2_cmake_SOURCE_DIR}/cmake")
     endif()
