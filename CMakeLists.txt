@@ -1,3 +1,6 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(dls_messages)
 cmake_policy(SET CMP0048 NEW)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
