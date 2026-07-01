@@ -1,0 +1,135 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - "**"
+
+env:
+  GNUTLS_CPUID_OVERRIDE: 0x1
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          set-safe-directory: true
+
+      - name: Create asset
+        run: echo "test asset prerelease" > a
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: a
+
+  release-on-push:
+    runs-on: ubuntu-latest
+    needs: build
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          set-safe-directory: true
+
+      - name: Normalize branch name
+        run: |
+          SAFE_BRANCH="${GITHUB_REF_NAME//\//-}"
+          SAFE_BRANCH="${SAFE_BRANCH//_/-}"
+          SAFE_BRANCH="$(echo "$SAFE_BRANCH" | tr '[:upper:]' '[:lower:]')"
+
+          echo "SAFE_BRANCH=$SAFE_BRANCH" >> "$GITHUB_ENV"
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: release-assets
+
+      - name: Compute release tag
+        run: |
+          git fetch --tags --force
+
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            LAST_VERSION="$(
+              git tag --list 'v[0-9]*.[0-9]*.[0-9]*' \
+                | sed 's/^v//' \
+                | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' \
+                | sort -V \
+                | tail -n 1
+            )"
+
+            if [ -z "$LAST_VERSION" ]; then
+              NEXT_VERSION="0.1.0"
+            else
+              MAJOR="$(echo "$LAST_VERSION" | cut -d. -f1)"
+              MINOR="$(echo "$LAST_VERSION" | cut -d. -f2)"
+              PATCH="$(echo "$LAST_VERSION" | cut -d. -f3)"
+
+              MINOR=$((MINOR + 1))
+              PATCH=0
+
+              NEXT_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+            fi
+
+            RELEASE_TAG="v${NEXT_VERSION}"
+          else
+            PREFIX="temp-${SAFE_BRANCH}-v"
+
+            LAST_NUMBER="$(
+              git tag --list "${PREFIX}*" \
+                | sed "s/^${PREFIX}//" \
+                | grep -E '^[0-9]+$' \
+                | sort -n \
+                | tail -n 1
+            )"
+
+            if [ -z "$LAST_NUMBER" ]; then
+              NEXT_NUMBER=1
+            else
+              NEXT_NUMBER=$((LAST_NUMBER + 1))
+            fi
+
+            RELEASE_TAG="${PREFIX}${NEXT_NUMBER}"
+          fi
+
+          echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
+          echo "Computed release tag: $RELEASE_TAG"
+
+
+      - name: Create main GitHub release and upload assets
+        if: github.ref_name == 'main'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
+          target_commitish: ${{ github.sha }}
+          files: release-assets/a
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create branch GitHub release and upload assets
+        if: github.ref_name != 'main'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
+          target_commitish: ${{ github.sha }}
+          files: release-assets/a
+          make_latest: false
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
