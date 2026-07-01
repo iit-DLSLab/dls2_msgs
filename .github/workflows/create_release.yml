@@ -5,14 +5,6 @@ on:
     branches:
       - "**"
 
-env:
-  GNUTLS_CPUID_OVERRIDE: 0x1
-
-permissions:
-  contents: write
-  packages: write
-  id-token: write
-
 jobs:
   # build:
   #   runs-on: ubuntu-24.04
@@ -32,14 +24,13 @@ jobs:
   #         path: a
 
   build:
-    steps:
-      - uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
-        with:
-          test-command: "ls"
-          output_workflow_artifact_name: build
-        secrets:
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-          CICD_PAT: ${{ secrets.CICD_PAT }}
+    uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
+    with:
+      test-command: "ls"
+      output_workflow_artifact_name: build
+    secrets:
+      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
+      CICD_PAT: ${{ secrets.CICD_PAT }}
 
   release-on-push:
     runs-on: ubuntu-latest
