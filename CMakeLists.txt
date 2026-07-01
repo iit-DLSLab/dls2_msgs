@@ -49,6 +49,28 @@ target_link_libraries(${LIBRARY_NAME}
         fastdds
 )
 
+# if dls_install is not found, download dls2 and take dls_install from the cmake folder of dls2
+if(NOT COMMAND dls_install)
+    message(STATUS "dls_install not found — fetching dls2 cmake modules from GitHub...")
+    include(FetchContent)
+    FetchContent_Declare(
+        dls2_cmake
+        GIT_REPOSITORY https://github.com/iit-DLSLab/dls2.git
+        GIT_TAG        main
+        GIT_SHALLOW    TRUE
+    )
+    FetchContent_GetProperties(dls2_cmake)
+    if(NOT dls2_cmake_POPULATED)
+        message(STATUS "Cloning dls2 (shallow) from git@github.com:iit-DLSLab/dls2.git ...")
+        FetchContent_Populate(dls2_cmake)
+        message(STATUS "dls2 cmake modules fetched to: ${dls2_cmake_SOURCE_DIR}/cmake")
+    endif()
+    list(APPEND CMAKE_MODULE_PATH "${dls2_cmake_SOURCE_DIR}/cmake")
+    include(dls_options)
+    include(dls_deploy)
+    message(STATUS "dls_install loaded from fetched dls2.")
+endif()
+
 dls_install(${LIBRARY_NAME})
 
 install(
