@@ -1,0 +1,12 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(fastcdr 2)
+find_dependency(fastdds 3)
+
+include("${CMAKE_CURRENT_LIST_DIR}/dls_messagesTargets.cmake")
+
+# Backward-compatibility alias so consumers can link with plain 'dls_messages'
+if(NOT TARGET dls_messages)
+    add_library(dls_messages ALIAS dls_messages::dls_messages)
+endif()

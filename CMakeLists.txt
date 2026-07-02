@@ -41,7 +41,10 @@ endforeach()
 
 target_include_directories(${LIBRARY_NAME}
     PUBLIC
-        ${CMAKE_CURRENT_BINARY_DIR}/include
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/dls_messages/dds/ros2_interface>
+        $<INSTALL_INTERFACE:/usr/include>
+        $<INSTALL_INTERFACE:/usr/include/dls_messages/dds/ros2_interface>
 )
 target_link_libraries(${LIBRARY_NAME}
     PUBLIC
@@ -72,7 +75,21 @@ if(NOT COMMAND dls_install)
     message(STATUS "dls_install loaded from fetched dls2.")
 endif()
 
-dls_install(${LIBRARY_NAME})
+# dls_install(${LIBRARY_NAME})
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/dls_messagesConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/dls_messagesConfig.cmake
+    INSTALL_DESTINATION /usr/lib/cmake/dls_messages
+    NO_SET_AND_CHECK_MACRO
+    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+)
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/dls_messagesConfig.cmake
+    DESTINATION /usr/lib/cmake/dls_messages
+    COMPONENT dls_messages_dev
+)
 
 install(
     DIRECTORY
@@ -80,5 +97,62 @@ install(
     DESTINATION
 		/usr/include/${LIBRARY_NAME}/cmake
 	COMPONENT
-		dls_dev
+		dls_messages_dev
 )
+
+install(TARGETS ${LIBRARY_NAME}
+    EXPORT dls_messagesTargets
+    LIBRARY
+        DESTINATION /usr/lib
+        COMPONENT dls_messages_dev
+    ARCHIVE
+        DESTINATION /usr/lib
+        COMPONENT dls_messages_dev
+    RUNTIME
+        DESTINATION ${DLS_INSTALL_RUNTIME_DIR}
+        COMPONENT dls_messages_dev
+)
+install(
+    EXPORT dls_messagesTargets
+    FILE dls_messagesTargets.cmake
+    NAMESPACE dls_messages::
+    DESTINATION /usr/lib/cmake/dls_messages
+    COMPONENT dls_messages_dev
+)
+install(
+    DIRECTORY
+        ${CMAKE_CURRENT_BINARY_DIR}/include/${LIBRARY_NAME}
+    DESTINATION
+        /usr/include/
+    COMPONENT
+        dls_messages_dev
+)
+
+set(CPACK_PACKAGE_VERSION_MAJOR         ${PROJECT_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR         ${PROJECT_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH         ${PROJECT_VERSION_PATCH})
+set(CPACK_DEBIAN_PACKAGE_VERSION        ${PROJECT_VERSION})
+set(CPACK_PACKAGE_VENDOR                "dlslab")
+set(CPACK_PACKAGE_CONTACT               "dlslab")
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER     "dlslab")
+set(CPACK_VERBATIM_VARIABLES            ON)
+set(CPACK_GENERATOR                     "DEB")
+set(CPACK_DEB_COMPONENT_INSTALL         ON)
+set(CPACK_PACKAGE_NAME 					"dls_messages_dev")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY 	"dls_messages_dev")
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS      ON)
+
+set(CPACK_DEBIAN_DLS_MESSAGES_PACKAGE_NAME          "dls-messages" CACHE INTERNAL "")
+set(CPACK_DEBIAN_DLS_MESSAGES_FILE_NAME             "dls-messages-${PROJECT_VERSION}.deb" CACHE INTERNAL "")  
+set(CPACK_DEBIAN_DLS_MESSAGES_PACKAGE_DEPENDS       "" CACHE INTERNAL "")
+set(CPACK_DEBIAN_DLS_MESSAGES_PACKAGE_SHLIBDEPS     ON)
+
+set(CPACK_DEBIAN_DLS_MESSAGES_DEV_PACKAGE_NAME      "dls-messages-dev" CACHE INTERNAL "")
+set(CPACK_DEBIAN_DLS_MESSAGES_DEV_FILE_NAME         "dls-messages-dev-${PROJECT_VERSION}.deb" CACHE INTERNAL "")  
+set(CPACK_DEBIAN_DLS_MESSAGES_DEV_PACKAGE_DEPENDS   "" CACHE INTERNAL "")
+set(CPACK_DEBIAN_DLS_MESSAGES_DEV_PACKAGE_SHLIBDEPS ON)
+
+get_cmake_property(CPACK_COMPONENTS_ALL COMPONENTS)
+list(REMOVE_ITEM CPACK_COMPONENTS_ALL "Unspecified")
+
+include(CPack)

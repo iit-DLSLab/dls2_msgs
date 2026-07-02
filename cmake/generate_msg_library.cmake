@@ -161,8 +161,9 @@ function(generate_msg_library idl_file_path library_name)
     get_property(MESSAGE_DIR GLOBAL PROPERTY MESSAGE_DIR)
     target_include_directories(${library_name}
         PUBLIC
-            ${MESSAGE_DIR}
-            ${CMAKE_CURRENT_BINARY_DIR}/include/dls_messages/dds/ros2_interface
+            $<BUILD_INTERFACE:${MESSAGE_DIR}>
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/dls_messages/dds/ros2_interface>
+            $<INSTALL_INTERFACE:/usr/include/dls_messages/dds/ros2_interface>
     )
     # ############################################################
 
@@ -245,7 +246,7 @@ function(generate_msg_library idl_file_path library_name)
     SET (PYTHON_MODULE_PATH
         ${_REL_PYTHON_MODULE_PATH}/${PROJECT_NAME}
         )
-    install(TARGETS ${${idl_file_name}_MODULE} DESTINATION ${PYTHON_MODULE_PATH})
+    install(TARGETS ${${idl_file_name}_MODULE} DESTINATION ${PYTHON_MODULE_PATH} COMPONENT dls_messages_dev)
     get_property(support_files TARGET ${${idl_file_name}_MODULE} PROPERTY SWIG_SUPPORT_FILES)
-    install(FILES ${support_files} DESTINATION ${PYTHON_MODULE_PATH})
+    install(FILES ${support_files} DESTINATION ${PYTHON_MODULE_PATH} COMPONENT dls_messages_dev)
 endfunction()
