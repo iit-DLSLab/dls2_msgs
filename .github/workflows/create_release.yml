@@ -25,7 +25,6 @@ jobs:
         password: ${{ secrets.CICD_PAT }}
     outputs:
       dev_deb_artifact_name: ${{ steps.cpack.outputs.dev_deb_artifact_name }}
-      runtime_deb_artifact_name: ${{ steps.cpack.outputs.runtime_deb_artifact_name }}
 
     steps:
       - uses: actions/checkout@v4
