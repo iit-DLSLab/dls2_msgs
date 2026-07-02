@@ -39,7 +39,12 @@ jobs:
 
       - name: Generate .deb packages
         id: cpack
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Allow FetchContent to clone private/public repos using the token
+          git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+
           # Reconfigure cmake so cmake_install.cmake paths reflect the current
           # runner workspace (compiled artifacts are already in build/ from the
           # downloaded artifact; no recompilation happens here).
