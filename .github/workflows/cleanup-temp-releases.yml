@@ -1,0 +1,93 @@
+name: Cleanup Temporary Branch Releases when Pull Request is Merged
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  cleanup-temp-releases:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Normalize merged branch name
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+
+          SAFE_BRANCH="${BRANCH_NAME//\//-}"
+          SAFE_BRANCH="${SAFE_BRANCH//_/-}"
+          SAFE_BRANCH="$(echo "$SAFE_BRANCH" | tr '[:upper:]' '[:lower:]')"
+
+          echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
+          echo "SAFE_BRANCH=$SAFE_BRANCH" >> "$GITHUB_ENV"
+
+          echo "Merged branch: $BRANCH_NAME"
+          echo "Safe branch: $SAFE_BRANCH"
+
+      - name: Delete all temporary releases and tags for merged branch
+        run: |
+          set -euo pipefail
+
+          PREFIX="temp-${SAFE_BRANCH}-v"
+
+          echo "Repository: ${GITHUB_REPOSITORY}"
+          echo "Looking for temp releases with prefix: ${PREFIX}"
+
+          gh api \
+            --paginate \
+            "repos/${GITHUB_REPOSITORY}/releases" \
+            --jq '.[] | [.id, .tag_name] | @tsv' \
+            > releases.tsv
+
+          echo "All release tags currently visible:"
+          cut -f2 releases.tsv || true
+
+          MATCHES="$(
+            awk -v prefix="$PREFIX" '
+              BEGIN { prefix_len = length(prefix) }
+              index($2, prefix) == 1 {
+                suffix = substr($2, prefix_len + 1)
+                if (suffix ~ /^[0-9]+$/) {
+                  print $1 "\t" $2
+                }
+              }
+            ' releases.tsv
+          )"
+
+          if [ -z "$MATCHES" ]; then
+            echo "No matching temporary releases found for branch: ${BRANCH_NAME}"
+            echo "Expected tags like: ${PREFIX}1, ${PREFIX}2, ${PREFIX}3"
+            exit 0
+          fi
+
+          echo "Matching releases to delete:"
+          echo "$MATCHES"
+
+          echo "$MATCHES" | while IFS="$(printf '\t')" read -r RELEASE_ID TAG; do
+            if [ -z "$RELEASE_ID" ] || [ -z "$TAG" ]; then
+              continue
+            fi
+
+            echo "Deleting release id=${RELEASE_ID}, tag=${TAG}"
+
+            gh api \
+              --method DELETE \
+              "repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}"
+
+            echo "Deleting git tag ref: ${TAG}"
+
+            gh api \
+              --method DELETE \
+              "repos/${GITHUB_REPOSITORY}/git/refs/tags/${TAG}" \
+              || echo "Tag ${TAG} was already deleted or did not exist"
+          done
