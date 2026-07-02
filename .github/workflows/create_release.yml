@@ -15,9 +15,57 @@ jobs:
       GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
       CICD_PAT: ${{ secrets.CICD_PAT }}
 
+  package-deb:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/iit-dlslab/dls2-dev:latest
+      credentials:
+        username: ${{ secrets.GHCR_USERNAME }}
+        password: ${{ secrets.CICD_PAT }}
+    outputs:
+      dev_deb_artifact_name: ${{ steps.cpack.outputs.dev_deb_artifact_name }}
+      runtime_deb_artifact_name: ${{ steps.cpack.outputs.runtime_deb_artifact_name }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: build
+
+      - name: Generate .deb packages
+        id: cpack
+        run: |
+          # Reconfigure cmake so cmake_install.cmake paths reflect the current
+          # runner workspace (compiled artifacts are already in build/ from the
+          # downloaded artifact; no recompilation happens here).
+          cmake -B build -S .
+
+          cd build
+          cpack -G DEB
+          cd ..
+
+          echo "Generated packages:"
+          ls -lh build/*.deb
+
+          DEV_DEB="$(ls build/dls-messages-dev.deb | head -1 | xargs basename)"
+          echo "dev_deb_artifact_name=${DEV_DEB}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload dev .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dls-messages-dev-deb
+          path: build/dls-messages-dev.deb
+          if-no-files-found: error
+
   release-on-push:
     runs-on: ubuntu-latest
-    needs: build
+    needs: package-deb
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,11 +84,17 @@ jobs:
 
           echo "SAFE_BRANCH=$SAFE_BRANCH" >> "$GITHUB_ENV"
 
-      - name: Download build artifact
+      - name: Download dev .deb artifact
         uses: actions/download-artifact@v4
         with:
-          name: build
-          path: build
+          name: dls-messages-dev-deb
+          path: debs
+
+      - name: Download runtime .deb artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dls-messages-deb
+          path: debs
 
       - name: Compute release tag
         run: |
@@ -92,11 +146,6 @@ jobs:
           echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "Computed release tag: $RELEASE_TAG"
 
-      - name: Package build artifact
-        run: |
-          tar -czf build.tar.gz -C build .
-          echo "Created build.tar.gz"
-      
       - name: Create main GitHub release and upload assets
         if: github.ref_name == 'main'
         uses: softprops/action-gh-release@v2
@@ -104,7 +153,7 @@ jobs:
           tag_name: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TAG }}
           target_commitish: ${{ github.sha }}
-          files: build.tar.gz
+          files: debs/*.deb
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -116,7 +165,7 @@ jobs:
           tag_name: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TAG }}
           target_commitish: ${{ github.sha }}
-          files: build.tar.gz
+          files: debs/*.deb
           make_latest: false
           prerelease: true
         env:
