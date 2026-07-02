@@ -92,7 +92,11 @@ jobs:
           echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "Computed release tag: $RELEASE_TAG"
 
-
+      - name: Package build artifact
+        run: |
+          tar -czf build.tar.gz -C build .
+          echo "Created build.tar.gz"
+      
       - name: Create main GitHub release and upload assets
         if: github.ref_name == 'main'
         uses: softprops/action-gh-release@v2
@@ -100,7 +104,7 @@ jobs:
           tag_name: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TAG }}
           target_commitish: ${{ github.sha }}
-          files: build/**
+          files: build.tar.gz
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -112,7 +116,7 @@ jobs:
           tag_name: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TAG }}
           target_commitish: ${{ github.sha }}
-          files: build/**
+          files: build.tar.gz
           make_latest: false
           prerelease: true
         env:
