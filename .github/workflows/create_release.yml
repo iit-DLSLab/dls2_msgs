@@ -21,8 +21,8 @@ jobs:
     container:
       image: ghcr.io/iit-dlslab/dls2-dev:latest
       credentials:
-        username: ${{ secrets.GHCR_USERNAME }}
-        password: ${{ secrets.CICD_PAT }}
+        username: ${{ secrets.GHCR_USERNAME || github.actor }}
+        password: ${{ secrets.CICD_PAT || github.token }}
     outputs:
       dev_deb_artifact_name: ${{ steps.cpack.outputs.dev_deb_artifact_name }}
 
