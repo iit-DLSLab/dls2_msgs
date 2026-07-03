@@ -69,7 +69,7 @@ jobs:
       - name: Download dev .deb artifact
         uses: actions/download-artifact@v4
         with:
-          name: dls-messages-dev-deb
+          name: dls-messages-deb
           path: debs
 
       - name: Download runtime .deb artifact
