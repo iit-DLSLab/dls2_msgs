@@ -16,7 +16,12 @@ jobs:
       CICD_PAT: ${{ secrets.CICD_PAT }}
 
   package-deb:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
+    container:
+      image: ghcr.io/iit-dlslab/dls2-dev:latest
+      credentials:
+        username: ${{ secrets.GHCR_USERNAME || github.actor }}
+        password: ${{ secrets.CICD_PAT || github.token }}
     needs: build_test_package
     steps:
       - name: Download build artifact
