@@ -24,6 +24,11 @@ jobs:
         password: ${{ secrets.CICD_PAT || github.token }}
     needs: build_test_package
     steps:
+      - uses: actions/checkout@v4
+        with:
+          set-safe-directory: true
+          submodules: recursive
+          token: ${{ secrets.CICD_PAT || github.token }}
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
