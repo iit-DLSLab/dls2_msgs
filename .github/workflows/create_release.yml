@@ -6,66 +6,46 @@ on:
       - "**"
 
 jobs:
-  build:
-    uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
-    with:
-      test-command: "ls"
-      output_workflow_artifact_name: build
-    secrets:
-      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-      CICD_PAT: ${{ secrets.CICD_PAT }}
+  build_test_package:
+    - uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
+      with:
+        test-command: "ls"
+        output_workflow_artifact_name: build
+      secrets:
+        GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
+        CICD_PAT: ${{ secrets.CICD_PAT }}
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: build
+        path: build
+    - name: Configure git credentials for cmake FetchContent
+      shell: bash
+      env:
+        CICD_PAT: ${{ secrets.CICD_PAT }}
+      run: |
+        set -euo pipefail
+        TOKEN="${CICD_PAT:-$GITHUB_TOKEN}"
+        git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
+    - name: Create debian package
+      shell: bash
+      run: |
+        set -euo pipefail
 
-  package-deb:
-    needs: build
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/iit-dlslab/dls2-dev:latest
-      credentials:
-        username: ${{ secrets.GHCR_USERNAME || github.actor }}
-        password: ${{ secrets.CICD_PAT || github.token }}
-    outputs:
-      dev_deb_artifact_name: ${{ steps.cpack.outputs.dev_deb_artifact_name }}
+        cd build
+        cpack -G DEB
+        cd ..
+        echo "Generated packages:"
+        ls -lh build/*.deb
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: build
-
-      - name: Generate .deb packages
-        id: cpack
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Allow FetchContent to clone private/public repos using the token
-          git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-
-          # Reconfigure cmake so cmake_install.cmake paths reflect the current
-          # runner workspace (compiled artifacts are already in build/ from the
-          # downloaded artifact; no recompilation happens here).
-          cmake -B build -S .
-
-          cd build
-          cpack -G DEB
-          cd ..
-
-          echo "Generated packages:"
-          ls -lh build/*.deb
-
-          DEV_DEB="$(ls build/dls-messages-dev.deb | head -1 | xargs basename)"
-          echo "dev_deb_artifact_name=${DEV_DEB}" >> "$GITHUB_OUTPUT"
-
-      - name: Upload dev .deb artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dls-messages-dev-deb
-          path: build/dls-messages-dev.deb
-          if-no-files-found: error
+        DEV_DEB="$(ls build/dls-messages-dev.deb | head -1 | xargs basename)"
+        echo "dev_deb_artifact_name=${DEV_DEB}" >> "$GITHUB_OUTPUT"
+    - name: Upload dev .deb artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: dls-messages-dev-deb
+        path: build/dls-messages-dev.deb
+        if-no-files-found: error
 
   release-on-push:
     runs-on: ubuntu-latest
