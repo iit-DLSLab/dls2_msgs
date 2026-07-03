@@ -7,33 +7,18 @@ on:
 
 jobs:
   build_test_package:
-    uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
-    with:
-      test-command: "ls"
-      output_workflow_artifact_name: build
-    secrets:
-      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-      CICD_PAT: ${{ secrets.CICD_PAT }}
-
-  package-deb:
     runs-on: ubuntu-latest    
     container:
       image: ghcr.io/iit-dlslab/dls2-dev:latest
       credentials:
         username: ${{ secrets.GHCR_USERNAME || github.actor }}
         password: ${{ secrets.CICD_PAT || github.token }}
-    needs: build_test_package
     steps:
       - uses: actions/checkout@v4
         with:
           set-safe-directory: true
           submodules: recursive
           token: ${{ secrets.CICD_PAT || github.token }}
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: .
       - name: Configure git credentials for cmake FetchContent
         shell: bash
         env:
@@ -42,26 +27,27 @@ jobs:
           set -euo pipefail
           TOKEN="${CICD_PAT:-$GITHUB_TOKEN}"
           git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
-      - name: Create debian package
+      - name: Build package
         shell: bash
         run: |
           set -euo pipefail
 
-          cd build
-          cpack -G DEB
-          cd ..
+          mkdir build && cd build
+          cmake ..
+          make -j$(nproc) package
+
           echo "Generated packages:"
           ls -lh build/*.deb
 
-          DEV_DEB="$(ls build/dls-messages-dev.deb | head -1 | xargs basename)"
-          echo "dev_deb_artifact_name=${DEV_DEB}" >> "$GITHUB_OUTPUT"
-      - name: Upload dev .deb artifact
+          RUNTIME_DEB="$(ls build/dls-messages*.deb | grep -v 'dev' | head -1 | xargs basename)"
+          echo "runtime_deb_artifact_name=${RUNTIME_DEB}" >> "$GITHUB_OUTPUT"
+      - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dls-messages-dev-deb
-          path: build/dls-messages-dev.deb
+          name: dls-messages-deb
+          path: build/dls-messages*.deb
           if-no-files-found: error
-
+  
   release-on-push:
     runs-on: ubuntu-latest
     needs: package-deb
