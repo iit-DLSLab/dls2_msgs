@@ -38,9 +38,6 @@ jobs:
 
           echo "Generated packages:"
           ls -lh *.deb
-
-          RUNTIME_DEB="$(ls dls-messages*.deb | grep -v 'dev' | head -1 | xargs basename)"
-          echo "runtime_deb_artifact_name=${RUNTIME_DEB}" >> "$GITHUB_OUTPUT"
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
         with:
