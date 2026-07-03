@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dls-messages-deb
-          path: build/dls-messages*.deb
+          path: build/dls-messages-dev.deb
           if-no-files-found: error
   
   release-on-push:
