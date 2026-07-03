@@ -23,7 +23,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
-          path: build
+          path: .
       - name: Configure git credentials for cmake FetchContent
         shell: bash
         env:
