@@ -7,45 +7,50 @@ on:
 
 jobs:
   build_test_package:
-    - uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
-      with:
-        test-command: "ls"
-        output_workflow_artifact_name: build
-      secrets:
-        GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-        CICD_PAT: ${{ secrets.CICD_PAT }}
-    - name: Download build artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: build
-        path: build
-    - name: Configure git credentials for cmake FetchContent
-      shell: bash
-      env:
-        CICD_PAT: ${{ secrets.CICD_PAT }}
-      run: |
-        set -euo pipefail
-        TOKEN="${CICD_PAT:-$GITHUB_TOKEN}"
-        git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
-    - name: Create debian package
-      shell: bash
-      run: |
-        set -euo pipefail
+    uses: iit-DLSLab/cicd_tools/.github/workflows/dls2_build_test.yml@main
+    with:
+      test-command: "ls"
+      output_workflow_artifact_name: build
+    secrets:
+      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
+      CICD_PAT: ${{ secrets.CICD_PAT }}
 
-        cd build
-        cpack -G DEB
-        cd ..
-        echo "Generated packages:"
-        ls -lh build/*.deb
+  package-deb:
+    runs-on: ubuntu-latest
+    needs: build_test_package
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: build
+      - name: Configure git credentials for cmake FetchContent
+        shell: bash
+        env:
+          CICD_PAT: ${{ secrets.CICD_PAT }}
+        run: |
+          set -euo pipefail
+          TOKEN="${CICD_PAT:-$GITHUB_TOKEN}"
+          git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
+      - name: Create debian package
+        shell: bash
+        run: |
+          set -euo pipefail
 
-        DEV_DEB="$(ls build/dls-messages-dev.deb | head -1 | xargs basename)"
-        echo "dev_deb_artifact_name=${DEV_DEB}" >> "$GITHUB_OUTPUT"
-    - name: Upload dev .deb artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: dls-messages-dev-deb
-        path: build/dls-messages-dev.deb
-        if-no-files-found: error
+          cd build
+          cpack -G DEB
+          cd ..
+          echo "Generated packages:"
+          ls -lh build/*.deb
+
+          DEV_DEB="$(ls build/dls-messages-dev.deb | head -1 | xargs basename)"
+          echo "dev_deb_artifact_name=${DEV_DEB}" >> "$GITHUB_OUTPUT"
+      - name: Upload dev .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dls-messages-dev-deb
+          path: build/dls-messages-dev.deb
+          if-no-files-found: error
 
   release-on-push:
     runs-on: ubuntu-latest
