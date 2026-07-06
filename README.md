@@ -1,13 +1,11 @@
-# Messages
-This package defines and build off-the-shelf messages for DLS2 and their related wrappers. It also provides you the cmake function that can be used by the user to generate custom messages and wrappers.
+# DLS2 messages
+Package defining and building off-the-shelf messages for DLS2.
+
 
 # Message generation
 Each message is defined by an idl file inside the [idls](idls) folder. See [here](https://fast-dds.docs.eprosima.com/en/latest/fastddsgen/dataTypes/dataTypes.html) for details about how to define a message in IDL format.
 
-To generate messages for fastdds, the [fastddgen](https://fast-dds.docs.eprosima.com/en/latest/fastddsgen/introduction/introduction.html) tool is used (check the cmake function _dls_add_message_ inside [dls_message.cmake](cmake/dls_message.cmake) file).
-
-# dls_std_msgs
-This repository contains the standard messages(.idl files) used by DLS2.
+To generate messages for fastdds, the [fastddgen](https://fast-dds.docs.eprosima.com/en/latest/fastddsgen/introduction/introduction.html) tool is used (check the cmake function _generate_msg_library_ inside [generate_msg_library.cmake](cmake/generate_msg_library.cmake) file).
 
 # ROS2 compatibility
 For ROS2 communication, message definitions should comply with the following conventions:
