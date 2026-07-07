@@ -5,7 +5,7 @@ module dls2_interface
 {
   module msg
   {
-    struct PegasusControlDebug
+    struct ControlDebug
     {
       dls2_interface::msg::DlsHeader header;
 
