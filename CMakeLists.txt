@@ -56,13 +56,13 @@ include(CMakePackageConfigHelpers)
 configure_package_config_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake/dls_messagesConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/dls_messagesConfig.cmake
-    INSTALL_DESTINATION /usr/lib/cmake/dls_messages
+    INSTALL_DESTINATION cmake
     NO_SET_AND_CHECK_MACRO
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
 )
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/dls_messagesConfig.cmake
-    DESTINATION /usr/lib/cmake/dls_messages
+    DESTINATION cmake
     COMPONENT dls_messages_dev
 )
 
@@ -70,7 +70,7 @@ install(
     DIRECTORY
 		${CMAKE_CURRENT_LIST_DIR}/cmake/
     DESTINATION
-		/usr/include/${LIBRARY_NAME}/cmake
+		${CMAKE_INSTALL_PREFIX}/cmake
 	COMPONENT
 		dls_messages_dev
 )
@@ -91,7 +91,7 @@ install(
     EXPORT dls_messagesTargets
     FILE dls_messagesTargets.cmake
     NAMESPACE dls_messages::
-    DESTINATION /usr/lib/cmake/dls_messages
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/cmake
     COMPONENT dls_messages_dev
 )
 install(
