@@ -6,10 +6,13 @@ module dls2_interface {
 		{
             dls2_interface::msg::DlsHeader header;
 
+			uint32 id;
 			double temperature;
 			double current;
 			double voltage;
 			double state_of_charge;
+			uint32 status;
+			uint32 fault;
 		};
 	};
 };
