@@ -1,0 +1,56 @@
+#pragma once
+
+#include <string>
+
+static const std::string kArmStateTypeHash = "RIHS01_418a66a1bbd57f7c1ad89d7c57e363ca02d17387e57538a3c276770c9415a6a3";
+static const std::string kArmTrajectoryGeneratorTypeHash = "RIHS01_837775ed906df4c5615fb242f4207a51801f560bfe14ea4001790be7ef8d7898";
+static const std::string kAttitudeTypeHash = "RIHS01_a24d32f9610d5c2e90760a2ad9183b2af9a453659c1842582bb1acb538a730b5";
+static const std::string kBaseReferenceTypeHash = "RIHS01_abc3005b2d8ccfba7b9afc2d175ed1c24b4caa4aa2b02ad84253470d30654624";
+static const std::string kBaseStateTypeHash = "RIHS01_07ee1f048efa0aff75a4b4bde3a4bccc6c3f373c6da108d0c06ccd97a3890249";
+static const std::string kBaseStateLightTypeHash = "RIHS01_ed5676d0916e24ddf6097f241213594daf5cc1e6ce82e9c1c610d354e2f25869";
+static const std::string kBatteryStatusTypeHash = "RIHS01_64ea96e2624667f0fc3f4fe4139311803635fa7954001bc2badb25f4ecebc742";
+static const std::string kBatteryStatusLightTypeHash = "RIHS01_6c0366c84b06c282e0a9728101581c8d5556b174e9a891d86abe91eaddd8ca26";
+static const std::string kBlindStateTypeHash = "RIHS01_20a6115fe96094e7854c3f538434c1e4304b49633eb572137da799de6a279b25";
+static const std::string kBlindStateLightTypeHash = "RIHS01_3c11793c69d61dc3499821c3ddf752746e067666d8a7a80c5953bbcf0780d46d";
+static const std::string kBoolTypeHash = "RIHS01_409007b6fab4c79f4a9f9ab2c7497a4c467c6daed887780af10c6eedac0a2dd6";
+static const std::string kButtonEventTypeHash = "RIHS01_f533dae044b17c5922613997c58efb8d69b7d67595572dfa4531e56d2a80f851";
+static const std::string kCommandCallTypeHash = "RIHS01_c7b430f9e135e2a4ffa265d6f5ef7f87e3e44539c71ed11054518333e7cdb74b";
+static const std::string kControllerCommandTypeHash = "RIHS01_817fa2d34ec3ceab0543c7558c8d6c4a331ebbd7f8bbd4c3d637153617805419";
+static const std::string kControlSignalTypeHash = "RIHS01_64087432a68cc5e76843ff92dc2d840ba6e26de892d2a307d7e90ad43ea29aab";
+static const std::string kCSBasicCommandTypeHash = "RIHS01_d6fb5bb5ab75edc6b69b28182de997a6e55f2b9054ac1393d60ca66ae0673c0a";
+static const std::string kCSEmergencyTypeHash = "RIHS01_b08b59653074840ea55804a2614e2bc139c7a1a926493f40e1283dbe431aa449";
+static const std::string kDesiredArmTorquesTypeHash = "RIHS01_263e6fb41d5e71a9c80eb75acbdd8b0d7fdb740ca5f08f83685910bcce3e99a9";
+static const std::string kDesiredTorquesTypeHash = "RIHS01_a4efb2b0f68265dbe977c12a0f175405b4ce014d35b877960c241524f36598e2";
+static const std::string kDlsEventsTypeHash = "RIHS01_057f22e3ed2c33b041aab76019f34a118ff2e4fc09b1767b0f09f96a5c220587";
+static const std::string kDlsHeaderTypeHash = "RIHS01_00550013bb626c2a7d5a8bd1400740e376c782377de041678ddd8a93bb5e7115";
+static const std::string kDlsRobotStateLightTypeHash = "RIHS01_45cad8d78337b9ea6a1d72c3921606d7e3870602f037926276b77d3ce42e26a8";
+static const std::string kDlsStatusTypeHash = "RIHS01_a09594b9353062dc6c4cebc3b276d2cc74314bc7a92333a7b28e7b3c3a124a12";
+static const std::string kDoubleTypeHash = "RIHS01_59114f7c6cd03ec52152cb94f6da30518ac0711a524b9e8f4b8b89a29165f2c1";
+static const std::string kEventLogTypeHash = "RIHS01_ac3182b48b513bd422a6248c1a9d2e305df5c5517327b1a721cf199fd889d73e";
+static const std::string kFeetReferenceTypeHash = "RIHS01_83647494deb23fb59cba04a1ce20bd3f69f5ffd75677f16d3c9cece91b34c78f";
+static const std::string kFrictionConeListTypeHash = "RIHS01_a615fae489a8b246e800b9a43ae497efd8a6647a9f43745ed317bd34f6ecf4b5";
+static const std::string kImuTypeHash = "RIHS01_da04e15eb0f1ae3e502bf556418773d721aa683dc385c314c95daa0ecb7fde60";
+static const std::string kInputTopicInfoTypeHash = "RIHS01_852a79cc04e4d390dc0c420394deb50f2cf4884b3b660a2d4b06b8bd78888935";
+static const std::string kJointStatesTypeHash = "RIHS01_7e06a5f850ce2e12e5e16cadf40bc938c282c30298b59bcc9ea7788f6d69fd86";
+static const std::string kJointStatesLightTypeHash = "RIHS01_b8ebf9a9a0f3fe3c6a9f0569717ba77a78c137ee989faf7887efa70d06f87524";
+static const std::string kLegsPoseTypeHash = "RIHS01_4549e0014c32e986df739e892066123284e8b4cc3b5c3fdd233f83b586df0e42";
+static const std::string kNavigationReferenceTypeHash = "RIHS01_7268fb1f424b8137baea5e31c5736d341a8ea048dfc5a9c75c04ffd56589c231";
+static const std::string kParamServerTypeHash = "RIHS01_dc1185d601202b7b102c82aa19c5408b2a9d0d908074f8da3d09ee2eb08a6776";
+static const std::string kPoseTypeHash = "RIHS01_7b92570537907e6f5d94339ef0fa400a2a6ca0c324316ea54661e7660a52991e";
+static const std::string kPosition2DTypeHash = "RIHS01_56841feb2210fe36c775291a86421cb0d130a97b219f2404c191dbd6ec049ee1";
+static const std::string kProcessStatusTypeHash = "RIHS01_3b7d3cf250f31a2ea1a0a1d0d973d216dd815b00b8ab4b953043b206dcad2abb";
+static const std::string kProcessStatusLightTypeHash = "RIHS01_fb7dec19e3c0236bca9e8ab7aa629dbdad0717483ef1fd834e6e975602a9ffd6";
+static const std::string kReferenceLightTypeHash = "RIHS01_5dfc5a14a782b91bb8b884ba50975a645e1078b7e614348919289025631fd8df";
+static const std::string kReferencePathTypeHash = "RIHS01_2f71b51e90a88975c22ab278c3a6e4f02ffc8f7dccdc194153b2700e85d50ba1";
+static const std::string kScrewTypeHash = "RIHS01_ac93ec97402a78ad299a1819928ee597c3513b26eba70dedd3529c47520328a2";
+static const std::string kSensorFusionTypeHash = "RIHS01_9ad8aa55e0d274dfd6b1fd9dece38fae33d18d47c2401f0de88cf6c2ef1a207c";
+static const std::string kStanceStatusTypeHash = "RIHS01_7a6a91fbf114740766267bedfd2748a9e7483774a8862a043e3c30bc0824f1db";
+static const std::string kStateMachineMonitorTypeHash = "RIHS01_9d03e295cebf947a6046c3797866c4e895c6fc614bfbf854a8fc16e6322f8651";
+static const std::string kStayOutZonesTypeHash = "RIHS01_305a3b60a1da10bef65c5ae6cc24b61356b24f67ea27cbbbe0a74bee36408aba";
+static const std::string kStringTypeHash = "RIHS01_e772794eaa713aeef30981cee2681bf75e9295e3eefb73864128bc16f8b814f6";
+static const std::string kTargetPositionTypeHash = "RIHS01_82cfc1bc22257e8f057fb4f8e873f0ec083dc395d7d6b8a2cb63c1ce4221ca41";
+static const std::string kTrajectoryGeneratorTypeHash = "RIHS01_7d82ff313751dbe51e204c2d3ba1a1e9431df84a365d2b539a0e2544caf0eb84";
+static const std::string kVec3TypeHash = "RIHS01_2c1e809336b16e058728519255893ddd30fb88b9f87a794b9f91f3c77d3a1982";
+static const std::string kViconTypeHash = "RIHS01_c6722a6d030aa0a25efaeaac15bcfeda0b92141cd615c9da1cc5325cf3338e9f";
+static const std::string kWrenchLightTypeHash = "RIHS01_d668790746e60ad6606ca4ea3be45e858c5fffa847248d307406a6c8308a897a";
+static const std::string kZoneTypeHash = "RIHS01_90adea8b2660f3fa28d5b0416c8480e16d7e64efaff30ed678af78300c13285a";
