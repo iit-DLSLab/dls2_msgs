@@ -19,8 +19,8 @@ module dls2_interface
       sequence<double> joints_temperature;
       sequence<boolean> feet_contact;
       sequence<double> current_feet_positions;
-			sequence<double> motor_current;
-      sequence<uint32> motor_status_word;
+			sequence<double> joints_current;
+      sequence<uint32> motors_status_word;
     };
   };
 };
