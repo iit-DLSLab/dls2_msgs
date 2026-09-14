@@ -250,3 +250,43 @@ function(generate_msg_library idl_file_path library_name)
     get_property(support_files TARGET ${${idl_file_name}_MODULE} PROPERTY SWIG_SUPPORT_FILES)
     install(FILES ${support_files} DESTINATION ${PYTHON_MODULE_PATH} COMPONENT dls_messages_dev)
 endfunction()
+
+function(add_msg_to_library library_name)   
+    message(STATUS "Adding message library for ${library_name}")
+
+    # iterate over all the idl files that are in the idls directory. Extract the name of the idl and the subdirectory where the idl is located.
+    file(GLOB_RECURSE idl_files CONFIGURE_DEPENDS
+        "${CMAKE_CURRENT_SOURCE_DIR}/idls/*.idl"
+    )
+
+    # generate msg files using fastddsgen
+    foreach(idl_file IN LISTS idl_files)
+        message(STATUS "Generating message files for ${idl_file}")
+        fastddsgen_trigger(${idl_file})
+    endforeach()
+
+    # Create a custom target that depends on all the fastddsgen targets, so that we can wait for all the generated files to be created before building the cpp and python libraries.
+    add_custom_target(dls_messages_fastddsgen_all
+        DEPENDS ${DLS_MESSAGES_FASTDDSGEN_TARGETS}
+    )
+    add_dependencies(${library_name}
+        dls_messages_fastddsgen_all
+    )
+
+    # add cpp generated files to the library_name library and create python bindings for the generated cpp files
+    foreach(idl_file IN LISTS idl_files)
+        generate_msg_library(${idl_file} ${library_name})
+        get_property(CPP_LIBRARY_NAME GLOBAL PROPERTY CPP_LIBRARY_NAME)
+    endforeach()
+
+    target_include_directories(${library_name}
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+            $<INSTALL_INTERFACE:/usr/include>
+    )
+    target_link_libraries(${library_name}
+        PUBLIC
+            fastcdr
+            fastdds
+    )
+endfunction()
