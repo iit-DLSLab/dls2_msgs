@@ -70,7 +70,7 @@ install(
     DIRECTORY
 		${CMAKE_CURRENT_LIST_DIR}/cmake/
     DESTINATION
-		${CMAKE_INSTALL_PREFIX}/cmake
+		cmake
 	COMPONENT
 		dls_messages_dev
 )
@@ -91,7 +91,7 @@ install(
     EXPORT dls_messagesTargets
     FILE dls_messagesTargets.cmake
     NAMESPACE dls_messages::
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/cmake
+    DESTINATION cmake
     COMPONENT dls_messages_dev
 )
 install(
