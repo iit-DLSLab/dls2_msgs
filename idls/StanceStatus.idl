@@ -11,6 +11,7 @@ module dls2_interface
 
       // data
       sequence<boolean> stance_status;
+      sequence<double> estimated_grfs;
     };
   };
 };
