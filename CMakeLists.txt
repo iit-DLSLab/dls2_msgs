@@ -52,42 +52,17 @@ target_link_libraries(${LIBRARY_NAME}
         fastdds
 )
 
-# if dls_install is not found, download dls2 and take dls_install from the cmake folder of dls2
-if(NOT COMMAND dls_install)
-    message(STATUS "dls_install not found — fetching dls2 cmake modules from GitHub...")
-    include(FetchContent)
-    FetchContent_Declare(
-        dls2_cmake
-        GIT_REPOSITORY    https://github.com/iit-DLSLab/dls2.git
-        GIT_TAG           main
-        GIT_SHALLOW       TRUE
-        GIT_SUBMODULES    ""   # we only need the cmake/ folder — skip all submodules
-    )
-    FetchContent_GetProperties(dls2_cmake)
-    if(NOT dls2_cmake_POPULATED)
-        message(STATUS "Cloning dls2 (shallow) from https://github.com/iit-DLSLab/dls2.git ...")
-        FetchContent_Populate(dls2_cmake)
-        message(STATUS "dls2 cmake modules fetched to: ${dls2_cmake_SOURCE_DIR}/cmake")
-    endif()
-    list(APPEND CMAKE_MODULE_PATH "${dls2_cmake_SOURCE_DIR}/cmake")
-    include(dls_options)
-    include(dls_deploy)
-    message(STATUS "dls_install loaded from fetched dls2.")
-endif()
-
-# dls_install(${LIBRARY_NAME})
-
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake/dls_messagesConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/dls_messagesConfig.cmake
-    INSTALL_DESTINATION /usr/lib/cmake/dls_messages
+    INSTALL_DESTINATION cmake
     NO_SET_AND_CHECK_MACRO
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
 )
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/dls_messagesConfig.cmake
-    DESTINATION /usr/lib/cmake/dls_messages
+    DESTINATION cmake
     COMPONENT dls_messages_dev
 )
 
@@ -95,7 +70,7 @@ install(
     DIRECTORY
 		${CMAKE_CURRENT_LIST_DIR}/cmake/
     DESTINATION
-		/usr/include/${LIBRARY_NAME}/cmake
+		cmake
 	COMPONENT
 		dls_messages_dev
 )
@@ -116,7 +91,7 @@ install(
     EXPORT dls_messagesTargets
     FILE dls_messagesTargets.cmake
     NAMESPACE dls_messages::
-    DESTINATION /usr/lib/cmake/dls_messages
+    DESTINATION cmake
     COMPONENT dls_messages_dev
 )
 install(
