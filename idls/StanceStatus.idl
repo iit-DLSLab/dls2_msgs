@@ -11,6 +11,8 @@ module dls2_interface
 
       // data
       sequence<boolean> stance_status;
+      // Estimated GRFs in base frame, flattened as [Fx, Fy, Fz] per limb id.
+      sequence<double> estimated_grfs;
     };
   };
 };
