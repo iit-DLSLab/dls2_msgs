@@ -21,6 +21,7 @@ module dls2_interface
       sequence<double> current_feet_positions;
 			sequence<double> motors_current;
       sequence<uint32> motors_status_word;
+      double trunk_temperature;
     };
   };
 };
