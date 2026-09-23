@@ -13,6 +13,28 @@ module dls2_interface
       sequence<boolean> stance_status;
       // Estimated GRFs in base frame, flattened as [Fx, Fy, Fz] per limb id.
       sequence<double> estimated_grfs;
+      // Filtered joint accelerations used by the GRF estimator [rad/s^2].
+      sequence<double> joints_acceleration;
+      // Joint-space dynamics contributions [Nm], indexed by joint id.
+      sequence<double> gravity_torques;
+      sequence<double> coriolis_torques;
+      sequence<double> joint_inertia_torques;
+      sequence<double> base_inertia_torques;
+      sequence<double> friction_torques;
+      // Raw measured joint torques from blind_state [Nm].
+      sequence<double> measured_joint_torques;
+      // Dynamics contributions mapped to base-frame GRFs [Fx, Fy, Fz] per limb.
+      sequence<double> gravity_grfs;
+      // Coriolis and centrifugal contribution: nonlinear effects minus gravity.
+      sequence<double> coriolis_grfs;
+      // Joint-acceleration contribution M_jj*qdd.
+      sequence<double> joint_inertia_grfs;
+      // Floating-base acceleration contribution M_jb*a_base.
+      sequence<double> base_inertia_grfs;
+      // Friction contribution added to the dynamics residual.
+      sequence<double> friction_grfs;
+      // Raw measured joint torques mapped through J^T, without model terms.
+      sequence<double> joint_torque_grfs;
     };
   };
 };
