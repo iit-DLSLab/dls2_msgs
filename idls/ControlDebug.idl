@@ -32,6 +32,8 @@ module dls2_interface
       double terrain_height_world;
       double terrain_roll;
       double terrain_pitch;
+      // Calculated joint torques in Nm with full MPC GRF, before enable blending, indexed like joints_position.
+      sequence<double> current_desired_torques;
     };
   };
 };
