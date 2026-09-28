@@ -34,6 +34,9 @@ module dls2_interface
       double terrain_pitch;
       // Calculated joint torques in Nm with full MPC GRF, before enable blending, indexed like joints_position.
       sequence<double> current_desired_torques;
+      // Measured controller inputs after simulated noise and drift.
+      double dp[3];
+      double omega[3];
     };
   };
 };
