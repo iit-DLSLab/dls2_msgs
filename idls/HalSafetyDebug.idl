@@ -1,0 +1,22 @@
+#include "DlsHeader.idl"
+
+module dls2_interface
+{
+  module msg
+  {
+    // Per-joint state of the HAL virtual joint limit, for debugging.
+    struct HalSafetyDebug
+    {
+      dls2_interface::msg::DlsHeader header;
+
+      uint8 safety_state; // RobotSafety::SafetyState
+
+      sequence<boolean> joint_pos_limit_violation_predicted;
+      sequence<long> virtual_joint_limit_side; // +1 braking toward position_max, -1 toward position_min, 0 inactive
+      sequence<double> virtual_joint_limit_anchor; // [rad], NaN when inactive
+      sequence<double> virtual_joint_limit_k; // [Nm/rad]
+      sequence<double> virtual_joint_limit_d; // [Nm*s/rad]
+      sequence<boolean> virtual_joint_limit_damping_only; // latched damping only (damping_after_stop)
+    };
+  };
+};
