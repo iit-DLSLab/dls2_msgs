@@ -17,6 +17,7 @@ module dls2_interface
       sequence<double> virtual_joint_limit_k; // [Nm/rad]
       sequence<double> virtual_joint_limit_d; // [Nm*s/rad]
       sequence<boolean> virtual_joint_limit_damping_only; // latched damping only (damping_after_stop)
+      sequence<double> virtual_joint_limit_torque; // [Nm] computed before the torque limits clamp, NaN when not overridden
     };
   };
 };
