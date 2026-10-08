@@ -37,6 +37,8 @@ module dls2_interface
       // Measured controller inputs after simulated noise and drift.
       double dp[3];
       double omega[3];
+      // Riccati feedback K (x - x0) added to the MPC GRF, in N, world frame, per leg; zero when not applied.
+      sequence<dls2_interface::msg::Vec3> riccati_grf_world;
     };
   };
 };
