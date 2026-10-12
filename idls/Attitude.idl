@@ -1,3 +1,5 @@
+#include "Imu.idl"
+
 module dls2_interface
 {
   module msg
@@ -13,6 +15,9 @@ module dls2_interface
       double orientation[4];
       double angular_velocity[3];
       double euler_angles_estimation[3];
+
+      // raw IMU input used for the estimation
+      dls2_interface::msg::Imu imu;
     };
   };
 };
