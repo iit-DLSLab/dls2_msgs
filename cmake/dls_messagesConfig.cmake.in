@@ -3,6 +3,8 @@
 include(CMakeFindDependencyMacro)
 find_dependency(fastcdr 2)
 find_dependency(fastdds 3)
+# ROS2 messages, linked publicly by dls_messages
+find_dependency(dls_messages_default_ros2 HINTS "${CMAKE_CURRENT_LIST_DIR}" /usr/cmake /usr/local/cmake)
 
 include("${CMAKE_CURRENT_LIST_DIR}/dls_messagesTargets.cmake")
 

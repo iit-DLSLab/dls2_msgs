@@ -1,0 +1,7 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(fastcdr 2)
+find_dependency(fastdds 3)
+
+include("${CMAKE_CURRENT_LIST_DIR}/dls_messages_default_ros2Targets.cmake")
