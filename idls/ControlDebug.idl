@@ -44,6 +44,8 @@ module dls2_interface
       double fmax[4];
       // Viscous + Coulomb compensation in Nm, before torque limits/blending, indexed like joints_position; zero when not applied.
       sequence<double> friction_torques;
+      // Acados time_tot in seconds for the last completed MPC solve; zero before the first solve.
+      double mpc_solve_time_s;
     };
   };
 };
