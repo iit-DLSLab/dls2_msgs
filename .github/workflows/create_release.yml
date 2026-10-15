@@ -33,6 +33,8 @@ jobs:
           set -euo pipefail
 
           mkdir build && cd build
+          # package only the DLS custom messages (DLS_MESSAGES_USE_INSTALLED_ROS2 is ON by default):
+          # the ROS2 messages (dls_messages_default_ros2) are already installed in the docker image by install_ros2_idls_messages.sh
           cmake ..
           make -j$(nproc) package
 
