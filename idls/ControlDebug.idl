@@ -21,6 +21,7 @@ module dls2_interface
       sequence<dls2_interface::msg::Vec3> current_feet_positions_world;
       sequence<dls2_interface::msg::Vec3> estimated_grf_world;
 
+      // One MPC interval: base at k+1; feet, nominal GRF and contacts at k.
       sequence<dls2_interface::msg::Vec3> predicted_base_positions;
       sequence<dls2_interface::msg::Vec3> predicted_feet_positions;
       sequence<dls2_interface::msg::Vec3> predicted_grf_horizon;
@@ -39,6 +40,12 @@ module dls2_interface
       double omega[3];
       // Riccati feedback K (x - x0) added to the MPC GRF, in N, world frame, per leg; zero when not applied.
       sequence<dls2_interface::msg::Vec3> riccati_grf_world;
+      // Filtered Fmax in N at MPC stage zero, in robotlib leg order.
+      double fmax[4];
+      // Viscous + Coulomb compensation in Nm, before torque limits/blending, indexed like joints_position; zero when not applied.
+      sequence<double> friction_torques;
+      // Acados time_tot in seconds for the last completed MPC solve; zero before the first solve.
+      double mpc_solve_time_s;
     };
   };
 };
