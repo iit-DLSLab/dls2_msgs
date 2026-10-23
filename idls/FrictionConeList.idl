@@ -11,8 +11,6 @@ module dls2_interface {
             sequence<double> quaternion_z;
             sequence<double> quaternion_w;
         
-            sequence<long> category;
-        
             sequence<double> scale;
         
         };

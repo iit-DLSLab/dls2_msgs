@@ -8,6 +8,7 @@ module dls2_interface {
 			dls2_interface::msg::Pose pose;
 			dls2_interface::msg::Screw velocity;
 			dls2_interface::msg::Screw acceleration;
+			sequence<boolean> stance_status;
 		};
 	};
 };
