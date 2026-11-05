@@ -33,6 +33,8 @@ module dls2_interface
       double terrain_height_world;
       double terrain_roll;
       double terrain_pitch;
+      // Friction coefficient used by the MPC.
+      double mu;
       // Calculated joint torques in Nm with full MPC GRF, before enable blending, indexed like joints_position.
       sequence<double> current_desired_torques;
       // Measured controller inputs after simulated noise and drift.
@@ -46,6 +48,10 @@ module dls2_interface
       sequence<double> friction_torques;
       // Acados time_tot in seconds for the last completed MPC solve; zero before the first solve.
       double mpc_solve_time_s;
+      // Whole-body CoM in m, world frame, from the measured base pose and joints (CoM offset included).
+      dls2_interface::msg::Vec3 com_position_world;
+      // MPC CoM in m, world frame, at the same stage as predicted_base_positions; equals com_position_world without an MPC prediction.
+      dls2_interface::msg::Vec3 desired_com_position_world;
     };
   };
 };
