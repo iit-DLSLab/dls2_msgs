@@ -11,6 +11,8 @@ module dls2_interface {
 			
 			sequence<dls2_interface::msg::Vec3> feet_position;
 			sequence<dls2_interface::msg::Vec3> feet_forces;
+			// Desired whole-body CoM in base frame.
+			dls2_interface::msg::Vec3 com_position;
 
 			dls2_interface::msg::Pose base_pose;
 			dls2_interface::msg::Screw base_velocity;
