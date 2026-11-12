@@ -1,4 +1,4 @@
-#include "ProcessStatusLight.idl"
+#include "ProcessStatus.idl"
 #include "ReferenceLight.idl"
 #include "DlsRobotStateLight.idl"
 #include "DlsHeader.idl"
@@ -10,10 +10,11 @@ module dls2_interface {
 		{
 			dls2_interface::msg::DlsHeader header;
 
-			sequence<dls2_interface::msg::ProcessStatusLight> processes; 
-			dls2_interface::msg::ReferenceLight reference;
+			sequence<dls2_interface::msg::ProcessStatus> processes; 
+			dls2_interface::msg::ReferenceLight reference; // followed by controller
 			dls2_interface::msg::DlsRobotStateLight robot_state;
-			dls2_interface::msg::CSBasicCommand cs_command_feedback;
+			dls2_interface::msg::CSBasicCommand cs_command_feedback; // last command received from the control station (echo)
+			dls2_interface::msg::CSBasicCommand cs_command_state; // modes actually applied by the orchestrator; enable = false only for a rover-side STOP
 		};
 	};
 };
