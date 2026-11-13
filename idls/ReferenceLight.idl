@@ -16,6 +16,9 @@ module dls2_interface {
 
 			dls2_interface::msg::Pose base_pose;
 			dls2_interface::msg::Screw base_velocity;
+
+			// Request to cancel the active navigation goal.
+			boolean cancel_navigation;
 		};
 	};
 };
