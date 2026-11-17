@@ -17,6 +17,7 @@ module dls2_interface
       double angular_velocity_covariance[9];
       double linear_acceleration[3];
       double linear_acceleration_covariance[9];
+      double magnetic_field[3];
     };
   };
 };

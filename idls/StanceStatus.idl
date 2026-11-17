@@ -1,3 +1,5 @@
+#include "Vec3.idl"
+
 module dls2_interface
 {
   module msg
@@ -11,8 +13,8 @@ module dls2_interface
 
       // data
       sequence<boolean> stance_status;
-      // Estimated GRFs in base frame, flattened as [Fx, Fy, Fz] per limb id.
-      sequence<double> estimated_grfs;
+      // Estimated GRFs in base frame, one Vec3 per limb id.
+      sequence<dls2_interface::msg::Vec3> estimated_grfs;
       // Filtered joint accelerations used by the GRF estimator [rad/s^2].
       sequence<double> joints_acceleration;
       // Joint-space dynamics contributions [Nm], indexed by joint id.

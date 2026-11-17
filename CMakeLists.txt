@@ -143,13 +143,36 @@ if(BUILD_DLS_LIBRARY)
             $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
             $<INSTALL_INTERFACE:/usr/include>
     )
+    # ROS2 packages used as fields by dls custom messages (e.g. DlsStatus -> action_msgs/GoalStatusArray).
+    # The fastddsgen-generated ros2 SWIG files include their headers by bare name (e.g. #include "UUID.hpp"),
+    # so the <pkg>/msg directory of every such package (and of its ros2 dependencies) must be on the include path.
+    # Only the needed packages are listed, to avoid bare-name clashes with dls headers (e.g. geometry_msgs Pose.hpp).
+    set(DLS_ROS2_DEPENDENCY_PACKAGES
+        action_msgs
+        builtin_interfaces
+        unique_identifier_msgs
+    )
+    foreach(ros2_package IN LISTS DLS_ROS2_DEPENDENCY_PACKAGES)
+        target_include_directories(${LIBRARY_NAME}
+            PUBLIC
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/dls_messages/dds/ros2_interface/${ros2_package}/msg>
+                $<INSTALL_INTERFACE:/usr/include/dls_messages/dds/ros2_interface/${ros2_package}/msg>
+        )
+        if(NOT BUILD_ROS2_LIBRARY)
+            # headers of the installed dls_messages_default_ros2
+            target_include_directories(${LIBRARY_NAME}
+                PUBLIC
+                    $<BUILD_INTERFACE:/usr/include/dls_messages/dds/ros2_interface/${ros2_package}/msg>
+            )
+        endif()
+    endforeach()
     target_link_libraries(${LIBRARY_NAME}
         PUBLIC
             fastcdr
             fastdds
             dls_messages::${ROS2_LIBRARY_NAME}
     )
-    # dls custom messages do not use ros2 symbols, so with --as-needed (Ubuntu default) the linker would drop
+    # Some dls custom messages may not use ros2 symbols, so with --as-needed (Ubuntu default) the linker would drop
     # dls_messages_default_ros2. Force it in DT_NEEDED so that linking dls_messages always carries it.
     target_link_options(${LIBRARY_NAME}
         PRIVATE

@@ -88,6 +88,7 @@ function(fastddsgen_trigger idl_file_path)
         -replace
         -cs
         -python
+        -t ${CMAKE_CURRENT_BINARY_DIR}/fastddsgen_tmp/
         -d
         ${MESSAGE_DIR}
         -I ${CMAKE_CURRENT_SOURCE_DIR}/idls
@@ -105,7 +106,7 @@ function(fastddsgen_trigger idl_file_path)
 			${generated_cpp_headers}
             ${generated_py_source}
 		COMMAND
-			${CMAKE_COMMAND} -E make_directory ${MESSAGE_DIR}
+			${CMAKE_COMMAND} -E make_directory ${MESSAGE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/fastddsgen_tmp
 		COMMAND
             ${fastddsgen_command}
 		COMMAND

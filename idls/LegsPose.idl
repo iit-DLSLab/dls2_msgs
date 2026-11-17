@@ -1,3 +1,5 @@
+#include "Vec3.idl"
+
 module dls2_interface
 {
   module msg
@@ -12,6 +14,7 @@ module dls2_interface
       // data
       sequence<double> linear_velocity;
       sequence<double> angular_velocity;
+      sequence<dls2_interface::msg::Vec3> feet_position; // one per leg, base frame
 
       double base_velocity[3];
 

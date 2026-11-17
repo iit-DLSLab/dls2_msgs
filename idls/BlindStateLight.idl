@@ -9,6 +9,11 @@ module dls2_interface {
 			sequence<double> joints_temperature;
 			sequence<double> motors_current;
 		    sequence<double> joints_effort;
+
+			sequence<uint32> motors_status_word;
+			sequence<string> motors_fault_info;
+			double trunk_temperature;
+			sequence<double> board_temperature;
 		};
   	};
 };

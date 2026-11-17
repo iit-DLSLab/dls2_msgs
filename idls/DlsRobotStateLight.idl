@@ -18,6 +18,9 @@ module dls2_interface {
 			sequence<dls2_interface::msg::Vec3> feet_forces;
 			dls2_interface::msg::FrictionConeList friction_cones;
 
+			// Measured whole-body CoM in base frame.
+			dls2_interface::msg::Vec3 com_position;
+
 			uint32 locomotion_strategy;
 
 			dls2_interface::msg::BatteryStatusLight battery_status;
